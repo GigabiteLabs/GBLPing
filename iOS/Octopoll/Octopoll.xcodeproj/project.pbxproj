@@ -235,7 +235,7 @@
 						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -481,7 +481,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Octopoll/Octopoll.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F9773F85D;
 				INFOPLIST_FILE = Octopoll/Info.plist;
@@ -503,7 +502,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Octopoll/Octopoll.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6F9773F85D;
 				INFOPLIST_FILE = Octopoll/Info.plist;
