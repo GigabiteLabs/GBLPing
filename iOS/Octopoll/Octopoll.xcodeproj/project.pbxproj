@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3799204C222891D100DFC25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799204B222891D100DFC25D /* AppDelegate.swift */; };
+		3799204E222891D100DFC25D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799204D222891D100DFC25D /* ViewController.swift */; };
+		37992051222891D100DFC25D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799204F222891D100DFC25D /* Main.storyboard */; };
+		37992053222891D300DFC25D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37992052222891D300DFC25D /* Assets.xcassets */; };
+		37992056222891D300DFC25D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37992054222891D300DFC25D /* LaunchScreen.storyboard */; };
+		37992061222891D300DFC25D /* OctopollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37992060222891D300DFC25D /* OctopollTests.swift */; };
+		3799206C222891D300DFC25D /* OctopollUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799206B222891D300DFC25D /* OctopollUITests.swift */; };
+		379920B82228A55700DFC25D /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 379920B72228A55700DFC25D /* test.m */; };
+		379920BC2228A7DB00DFC25D /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 379920BB2228A7DB00DFC25D /* SimplePing.m */; };
+		379920C12228BA6600DFC25D /* MacFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 379920BF2228BA6600DFC25D /* MacFinder.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3799205D222891D300DFC25D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37992040222891D100DFC25D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37992047222891D100DFC25D;
+			remoteInfo = Octopoll;
+		};
+		37992068222891D300DFC25D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37992040222891D100DFC25D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37992047222891D100DFC25D;
+			remoteInfo = Octopoll;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		37992048222891D100DFC25D /* Octopoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Octopoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3799204B222891D100DFC25D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3799204D222891D100DFC25D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37992050222891D100DFC25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		37992052222891D300DFC25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37992055222891D300DFC25D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		37992057222891D300DFC25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3799205C222891D300DFC25D /* OctopollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctopollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37992060222891D300DFC25D /* OctopollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctopollTests.swift; sourceTree = "<group>"; };
+		37992062222891D300DFC25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37992067222891D300DFC25D /* OctopollUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctopollUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3799206B222891D300DFC25D /* OctopollUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctopollUITests.swift; sourceTree = "<group>"; };
+		3799206D222891D300DFC25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		379920B62228A55600DFC25D /* Octopoll-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Octopoll-Bridging-Header.h"; sourceTree = "<group>"; };
+		379920B72228A55700DFC25D /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
+		379920BA2228A7DB00DFC25D /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		379920BB2228A7DB00DFC25D /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		379920BF2228BA6600DFC25D /* MacFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacFinder.m; sourceTree = "<group>"; };
+		379920C02228BA6600DFC25D /* MacFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacFinder.h; sourceTree = "<group>"; };
+		379920C32228BBFF00DFC25D /* route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = route.h; sourceTree = "<group>"; };
+		379920C42228BBFF00DFC25D /* if_ether.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = if_ether.h; sourceTree = "<group>"; };
+		379920C52228BBFF00DFC25D /* if_arp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = if_arp.h; sourceTree = "<group>"; };
+		379920C62228C1DB00DFC25D /* Octopoll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Octopoll.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37992045222891D100DFC25D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37992059222891D300DFC25D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37992064222891D300DFC25D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3799203F222891D100DFC25D = {
+			isa = PBXGroup;
+			children = (
+				3799204A222891D100DFC25D /* Octopoll */,
+				3799205F222891D300DFC25D /* OctopollTests */,
+				3799206A222891D300DFC25D /* OctopollUITests */,
+				37992049222891D100DFC25D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		37992049222891D100DFC25D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37992048222891D100DFC25D /* Octopoll.app */,
+				3799205C222891D300DFC25D /* OctopollTests.xctest */,
+				37992067222891D300DFC25D /* OctopollUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3799204A222891D100DFC25D /* Octopoll */ = {
+			isa = PBXGroup;
+			children = (
+				379920C62228C1DB00DFC25D /* Octopoll.entitlements */,
+				379920C22228BA6B00DFC25D /* MacFinder */,
+				379920B92228A7BB00DFC25D /* SimplePing */,
+				3799204B222891D100DFC25D /* AppDelegate.swift */,
+				3799204D222891D100DFC25D /* ViewController.swift */,
+				379920B72228A55700DFC25D /* test.m */,
+				3799204F222891D100DFC25D /* Main.storyboard */,
+				37992052222891D300DFC25D /* Assets.xcassets */,
+				37992054222891D300DFC25D /* LaunchScreen.storyboard */,
+				37992057222891D300DFC25D /* Info.plist */,
+				379920B62228A55600DFC25D /* Octopoll-Bridging-Header.h */,
+			);
+			path = Octopoll;
+			sourceTree = "<group>";
+		};
+		3799205F222891D300DFC25D /* OctopollTests */ = {
+			isa = PBXGroup;
+			children = (
+				37992060222891D300DFC25D /* OctopollTests.swift */,
+				37992062222891D300DFC25D /* Info.plist */,
+			);
+			path = OctopollTests;
+			sourceTree = "<group>";
+		};
+		3799206A222891D300DFC25D /* OctopollUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3799206B222891D300DFC25D /* OctopollUITests.swift */,
+				3799206D222891D300DFC25D /* Info.plist */,
+			);
+			path = OctopollUITests;
+			sourceTree = "<group>";
+		};
+		379920B92228A7BB00DFC25D /* SimplePing */ = {
+			isa = PBXGroup;
+			children = (
+				379920BA2228A7DB00DFC25D /* SimplePing.h */,
+				379920BB2228A7DB00DFC25D /* SimplePing.m */,
+			);
+			path = SimplePing;
+			sourceTree = "<group>";
+		};
+		379920C22228BA6B00DFC25D /* MacFinder */ = {
+			isa = PBXGroup;
+			children = (
+				379920C52228BBFF00DFC25D /* if_arp.h */,
+				379920C42228BBFF00DFC25D /* if_ether.h */,
+				379920C32228BBFF00DFC25D /* route.h */,
+				379920C02228BA6600DFC25D /* MacFinder.h */,
+				379920BF2228BA6600DFC25D /* MacFinder.m */,
+			);
+			path = MacFinder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37992047222891D100DFC25D /* Octopoll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37992070222891D300DFC25D /* Build configuration list for PBXNativeTarget "Octopoll" */;
+			buildPhases = (
+				37992044222891D100DFC25D /* Sources */,
+				37992045222891D100DFC25D /* Frameworks */,
+				37992046222891D100DFC25D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Octopoll;
+			productName = Octopoll;
+			productReference = 37992048222891D100DFC25D /* Octopoll.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3799205B222891D300DFC25D /* OctopollTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37992073222891D300DFC25D /* Build configuration list for PBXNativeTarget "OctopollTests" */;
+			buildPhases = (
+				37992058222891D300DFC25D /* Sources */,
+				37992059222891D300DFC25D /* Frameworks */,
+				3799205A222891D300DFC25D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3799205E222891D300DFC25D /* PBXTargetDependency */,
+			);
+			name = OctopollTests;
+			productName = OctopollTests;
+			productReference = 3799205C222891D300DFC25D /* OctopollTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		37992066222891D300DFC25D /* OctopollUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37992076222891D300DFC25D /* Build configuration list for PBXNativeTarget "OctopollUITests" */;
+			buildPhases = (
+				37992063222891D300DFC25D /* Sources */,
+				37992064222891D300DFC25D /* Frameworks */,
+				37992065222891D300DFC25D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37992069222891D300DFC25D /* PBXTargetDependency */,
+			);
+			name = OctopollUITests;
+			productName = OctopollUITests;
+			productReference = 37992067222891D300DFC25D /* OctopollUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37992040222891D100DFC25D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Dan;
+				TargetAttributes = {
+					37992047222891D100DFC25D = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+						};
+					};
+					3799205B222891D300DFC25D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 37992047222891D100DFC25D;
+					};
+					37992066222891D300DFC25D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 37992047222891D100DFC25D;
+					};
+				};
+			};
+			buildConfigurationList = 37992043222891D100DFC25D /* Build configuration list for PBXProject "Octopoll" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3799203F222891D100DFC25D;
+			productRefGroup = 37992049222891D100DFC25D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37992047222891D100DFC25D /* Octopoll */,
+				3799205B222891D300DFC25D /* OctopollTests */,
+				37992066222891D300DFC25D /* OctopollUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37992046222891D100DFC25D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37992056222891D300DFC25D /* LaunchScreen.storyboard in Resources */,
+				37992053222891D300DFC25D /* Assets.xcassets in Resources */,
+				37992051222891D100DFC25D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3799205A222891D300DFC25D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37992065222891D300DFC25D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37992044222891D100DFC25D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3799204E222891D100DFC25D /* ViewController.swift in Sources */,
+				3799204C222891D100DFC25D /* AppDelegate.swift in Sources */,
+				379920B82228A55700DFC25D /* test.m in Sources */,
+				379920C12228BA6600DFC25D /* MacFinder.m in Sources */,
+				379920BC2228A7DB00DFC25D /* SimplePing.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37992058222891D300DFC25D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37992061222891D300DFC25D /* OctopollTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37992063222891D300DFC25D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3799206C222891D300DFC25D /* OctopollUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3799205E222891D300DFC25D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37992047222891D100DFC25D /* Octopoll */;
+			targetProxy = 3799205D222891D300DFC25D /* PBXContainerItemProxy */;
+		};
+		37992069222891D300DFC25D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37992047222891D100DFC25D /* Octopoll */;
+			targetProxy = 37992068222891D300DFC25D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3799204F222891D100DFC25D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37992050222891D100DFC25D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		37992054222891D300DFC25D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37992055222891D300DFC25D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3799206E222891D300DFC25D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3799206F222891D300DFC25D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37992071222891D300DFC25D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Octopoll/Octopoll.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6F9773F85D;
+				INFOPLIST_FILE = Octopoll/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.octopoll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Octopoll/Octopoll-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		37992072222891D300DFC25D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Octopoll/Octopoll.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6F9773F85D;
+				INFOPLIST_FILE = Octopoll/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.octopoll;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Octopoll/Octopoll-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		37992074222891D300DFC25D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6F9773F85D;
+				INFOPLIST_FILE = OctopollTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.OctopollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Octopoll.app/Octopoll";
+			};
+			name = Debug;
+		};
+		37992075222891D300DFC25D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6F9773F85D;
+				INFOPLIST_FILE = OctopollTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.OctopollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Octopoll.app/Octopoll";
+			};
+			name = Release;
+		};
+		37992077222891D300DFC25D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6F9773F85D;
+				INFOPLIST_FILE = OctopollUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.OctopollUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Octopoll;
+			};
+			name = Debug;
+		};
+		37992078222891D300DFC25D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6F9773F85D;
+				INFOPLIST_FILE = OctopollUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.OctopollUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Octopoll;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37992043222891D100DFC25D /* Build configuration list for PBXProject "Octopoll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3799206E222891D300DFC25D /* Debug */,
+				3799206F222891D300DFC25D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37992070222891D300DFC25D /* Build configuration list for PBXNativeTarget "Octopoll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37992071222891D300DFC25D /* Debug */,
+				37992072222891D300DFC25D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37992073222891D300DFC25D /* Build configuration list for PBXNativeTarget "OctopollTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37992074222891D300DFC25D /* Debug */,
+				37992075222891D300DFC25D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37992076222891D300DFC25D /* Build configuration list for PBXNativeTarget "OctopollUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37992077222891D300DFC25D /* Debug */,
+				37992078222891D300DFC25D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 37992040222891D100DFC25D /* Project object */;
+}
