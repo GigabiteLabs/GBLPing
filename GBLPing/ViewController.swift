@@ -125,7 +125,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     }
 }
 
-extension ViewController: SimplePingDelegate{
+extension ViewController: SimplePingDelegate {
     
     /// Called by the table view selection delegate callback to start the ping.
     

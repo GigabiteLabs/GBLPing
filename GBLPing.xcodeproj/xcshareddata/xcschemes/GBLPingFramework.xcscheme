@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "37992047222891D100DFC25D"
-               BuildableName = "GBLPing.app"
-               BlueprintName = "GBLPing"
+               BlueprintIdentifier = "37F7A5382445B9220089ACEC"
+               BuildableName = "GBLPingFramework.framework"
+               BlueprintName = "GBLPingFramework"
                ReferencedContainer = "container:GBLPing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,31 +32,22 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3799205B222891D300DFC25D"
-               BuildableName = "GBLPingTests.xctest"
-               BlueprintName = "GBLPingTests"
-               ReferencedContainer = "container:GBLPing.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "37992066222891D300DFC25D"
-               BuildableName = "GBLPingUITests.xctest"
-               BlueprintName = "GBLPingUITests"
-               ReferencedContainer = "container:GBLPing.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "37F7A5402445B9220089ACEC"
                BuildableName = "GBLPingFrameworkTests.xctest"
                BlueprintName = "GBLPingFrameworkTests"
                ReferencedContainer = "container:GBLPing.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "GBLPingFrameworkTests/testGBLPingDelegateClass()">
+               </Test>
+               <Test
+                  Identifier = "GBLPingFrameworkTests/testGBLPingServiceClass()">
+               </Test>
+               <Test
+                  Identifier = "GBLPingFrameworkTests/testPerformanceExample()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
@@ -70,16 +61,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "37992047222891D100DFC25D"
-            BuildableName = "GBLPing.app"
-            BlueprintName = "GBLPing"
-            ReferencedContainer = "container:GBLPing.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -87,16 +68,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "37992047222891D100DFC25D"
-            BuildableName = "GBLPing.app"
-            BlueprintName = "GBLPing"
+            BlueprintIdentifier = "37F7A5382445B9220089ACEC"
+            BuildableName = "GBLPingFramework.framework"
+            BlueprintName = "GBLPingFramework"
             ReferencedContainer = "container:GBLPing.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
