@@ -7,8 +7,8 @@
 
 import Foundation
 /// The main interface into GBLPing. Initializes a shared instance of the GBLPingService.
-public class GBLPing: GBLPingService {
+public final class GBLPing {
     /// A shared instance of GBLPing
-    public static let shared = GBLPing()
-    private override init() { }
+    public static let shared = GBLPingService()
+    private init() { }
 }

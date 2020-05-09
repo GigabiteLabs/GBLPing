@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37992047222891D100DFC25D"
-               BuildableName = "GBLPing.app"
-               BlueprintName = "GBLPing"
+               BuildableName = "GBLPingExampleExample.app"
+               BlueprintName = "GBLPingExample"
                ReferencedContainer = "container:GBLPing.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3799205B222891D300DFC25D"
-               BuildableName = "GBLPingTests.xctest"
-               BlueprintName = "GBLPingTests"
-               ReferencedContainer = "container:GBLPing.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "37992066222891D300DFC25D"
-               BuildableName = "GBLPingUITests.xctest"
-               BlueprintName = "GBLPingUITests"
-               ReferencedContainer = "container:GBLPing.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -75,8 +55,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37992047222891D100DFC25D"
-            BuildableName = "GBLPing.app"
-            BlueprintName = "GBLPing"
+            BuildableName = "GBLPingExampleExample.app"
+            BlueprintName = "GBLPingExample"
             ReferencedContainer = "container:GBLPing.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -92,8 +72,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37992047222891D100DFC25D"
-            BuildableName = "GBLPing.app"
-            BlueprintName = "GBLPing"
+            BuildableName = "GBLPingExampleExample.app"
+            BlueprintName = "GBLPingExample"
             ReferencedContainer = "container:GBLPing.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

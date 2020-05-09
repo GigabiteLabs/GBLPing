@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37F7A5382445B9220089ACEC"
-               BuildableName = "GBLPingFramework.framework"
+               BuildableName = "GBLPing.framework"
                BlueprintName = "GBLPingFramework"
                ReferencedContainer = "container:GBLPing.xcodeproj">
             </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37F7A5382445B9220089ACEC"
-            BuildableName = "GBLPingFramework.framework"
+            BuildableName = "GBLPing.framework"
             BlueprintName = "GBLPingFramework"
             ReferencedContainer = "container:GBLPing.xcodeproj">
          </BuildableReference>

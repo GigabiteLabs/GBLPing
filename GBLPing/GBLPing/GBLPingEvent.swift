@@ -8,11 +8,11 @@
 import Foundation
 
 /// An enum representing all of the known & supported event outcomes resulting from an attempt to ping.
-public enum GBLPingEvent: String, CaseIterable{
+public enum GBLPingEvent: String, CaseIterable, Codable {
     // Messages
     case debugMessage, infoMessage
     // Lifecycle events
-    case pingWillStart, pingDidStart, pingDidStop
+    case pingReadyToStart, pingWillStart, pingDidStart, pingDidStop, pingMaximumReached
     // Outcomes
-    case packetRecieved, packetSent, pingFailure, unexpectedEvent
+    case responsePacketRecieved, packetSent, pingFailure, unexpectedPacketRecieved, unexpectedEvent
 }

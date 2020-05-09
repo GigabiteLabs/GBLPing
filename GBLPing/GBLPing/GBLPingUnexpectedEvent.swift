@@ -8,7 +8,7 @@
 import Foundation
 
 /// An enum representing the known & unexpected events that could occur
-public enum GBLPingUnexpectedEvent: String, CaseIterable {
+public enum GBLPingUnexpectedEvent: String, CaseIterable, Codable {
     // Network related issues
     case packetDiscrepancy
     // Usage related issues

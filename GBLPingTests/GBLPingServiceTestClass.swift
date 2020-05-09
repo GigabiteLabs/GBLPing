@@ -6,36 +6,10 @@
 //
 
 import Foundation
-import GBLPingFramework
-
-class GBLPingServiceTestClass: GBLPingServiceProtocol {
-    // get shared instance ref
-    var gblPing: GBLPing
-    // Setup default types
-    var lastPingEventType: GBLPingEvent = .pingWillStart
-    var lastPingDescription: String = ""
-    var lastUnexpectedEvent: GBLPingUnexpectedEvent? = nil
-    
-    init() {
-        // assign reference to shared instance
-        gblPing = GBLPing.shared
-        gblPing.delegate = self
-    }
-    
-    func gblPingEventDidOccur(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
-        print("pingEvent: \(event.rawValue)")
-        print("unexpectedEventType: \(unexpectedEventType?.rawValue ?? "(nil)")")
-        print("pingEvent Description: \(description)\n\n")
-        
-        self.lastPingEventType = event
-        self.lastPingDescription = description
-        self.lastUnexpectedEvent = unexpectedEventType
-    }
-}
+import GBLPing
 
 class GBLPingDelegateTestClass: GBLPingDelegate {
     // Setup default types
-    var lastPingEventType: GBLPingEvent = .pingWillStart
     var lastPingDescription: String = ""
     var lastUnexpectedEvent: GBLPingUnexpectedEvent? = nil
     
@@ -48,7 +22,6 @@ class GBLPingDelegateTestClass: GBLPingDelegate {
         print("unexpectedEventType: \(unexpectedEventType?.rawValue ?? "(nil)")")
         print("pingEvent Description: \(description)\n\n")
         
-        self.lastPingEventType = event
         self.lastPingDescription = description
         self.lastUnexpectedEvent = unexpectedEventType
     }

@@ -7,11 +7,23 @@
 //
 
 import UIKit
+import GBLPing
 
-class ViewController: UIViewController, UITextFieldDelegate{
+class ViewController: UIViewController, UITextFieldDelegate, GBLPingDataDelegate {
+    func pingResult(result: GBLPingResult) {
+        
+        print("ping result: \(result)")
+    }
+    
+    func gblPingEventDidOccur(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
+        print("ping event: \(event.rawValue)")
+    }
+    
     var pinger: SimplePing?
     var sendTimer: Timer?
-    var hostName = "www.apple.com"
+    var hostName: String {
+        return ipInput.text ?? "apple.com"
+    }
     
     @IBOutlet weak var macLabel: UILabel!
     @IBOutlet weak var ipLabel: UILabel!
@@ -33,14 +45,15 @@ class ViewController: UIViewController, UITextFieldDelegate{
             self.running = false
         case false:
             print("pinging: \(self.hostName)")
-            self.start(forceIPv4: true, forceIPv6: false, hostname: self.hostName)
-            if let mac = MacFinder.ip2mac(self.hostName){
-                print("MAC address for target \(self.hostName): \(mac)")
-                self.macLabel.text = "Target device MAC: \(mac)"
-            }else{
-                print("could not find a MAC address for target \(self.hostName)")
-                self.macLabel.text = "no MAC found for \(self.hostName)"
-            }
+            //self.start(forceIPv4: true, forceIPv6: false, hostname: self.hostName)
+            GBLPing.shared.pingHostname(hostname: hostName, maxPings: 2)
+//            if let mac = MacFinder.ip2mac(self.hostName){
+//                print("MAC address for target \(self.hostName): \(mac)")
+//                self.macLabel.text = "Target device MAC: \(mac)"
+//            }else{
+//                print("could not find a MAC address for target \(self.hostName)")
+//                self.macLabel.text = "no MAC found for \(self.hostName)"
+//            }
             self.pingButton.setTitle("Stop", for: .normal)
             self.pingButton.tintColor = UIColor.red
             self.pingResultsLabel.text = ""
@@ -62,6 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         // Do any additional setup after loading the view, typically from a nib.
         self.updateIPLabel()
         self.ipInput.delegate = self
+        GBLPing.shared.dataDelegate = self
     }
 
     
@@ -109,20 +123,20 @@ class ViewController: UIViewController, UITextFieldDelegate{
         return "IP: \(address!)\nSubnet: \(subnet!)"
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.hostName = textField.text ?? ""
-        self.ipInput.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        self.hostName = textField.text ?? ""
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        self.hostName = textField.text ?? ""
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.hostName = textField.text ?? ""
+//        self.ipInput.resignFirstResponder()
+//        return true
+//    }
+//
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        self.hostName = textField.text ?? ""
+//        return true
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+//        self.hostName = textField.text ?? ""
+//    }
 }
 
 extension ViewController: SimplePingDelegate {
