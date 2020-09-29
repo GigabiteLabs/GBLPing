@@ -6,9 +6,11 @@
 //
 
 import Foundation
+/// A typealias for simpler consumption.
+public typealias Ping = GBLPing
 /// The main interface into GBLPing. Initializes a shared instance of the GBLPingService.
 public final class GBLPing {
     /// A shared instance of GBLPing
-    public static let shared = GBLPingService()
+    public static let service = GBLPingService()
     private init() { }
 }

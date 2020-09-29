@@ -10,15 +10,6 @@ import UIKit
 import GBLPing
 
 class ViewController: UIViewController, UITextFieldDelegate, GBLPingDataDelegate {
-    func pingResult(result: GBLPingResult) {
-        
-        print("ping result: \(result)")
-    }
-    
-    func gblPingEventDidOccur(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
-        print("ping event: \(event.rawValue)")
-    }
-    
     var pinger: SimplePing?
     var sendTimer: Timer?
     var hostName: String {
@@ -46,7 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate, GBLPingDataDelegate
         case false:
             print("pinging: \(self.hostName)")
             //self.start(forceIPv4: true, forceIPv6: false, hostname: self.hostName)
-            GBLPing.shared.pingHostname(hostname: hostName, maxPings: 2)
+            GBLPing.service.pingHostname(hostname: hostName, maxPings: 2)
 //            if let mac = MacFinder.ip2mac(self.hostName){
 //                print("MAC address for target \(self.hostName): \(mac)")
 //                self.macLabel.text = "Target device MAC: \(mac)"
@@ -75,7 +66,7 @@ class ViewController: UIViewController, UITextFieldDelegate, GBLPingDataDelegate
         // Do any additional setup after loading the view, typically from a nib.
         self.updateIPLabel()
         self.ipInput.delegate = self
-        GBLPing.shared.dataDelegate = self
+        GBLPing.service.dataDelegate = self
     }
 
     
@@ -121,6 +112,18 @@ class ViewController: UIViewController, UITextFieldDelegate, GBLPingDataDelegate
         freeifaddrs(ifaddr)
         
         return "IP: \(address!)\nSubnet: \(subnet!)"
+    }
+    
+    func pingEventOccured(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
+        print("ping event: \(event.rawValue)")
+    }
+    
+    func pingError(error: GBLPingUnexpectedEvent) {
+        print("ping event: \(error.rawValue)")
+    }
+    
+    func pingResult(result: GBLPingResult) {
+        print("ping result: \(result)")
     }
     
 //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {

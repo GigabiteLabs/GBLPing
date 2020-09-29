@@ -21,20 +21,21 @@ class GBLPingOperationsTests: XCTestCase {
     func test_1_TestMaxPingEvents() throws {
         print("\n\n************ TestMaxPingEvents ************")
         // setup new test class
-        let dataDelegate = GBLPingDelegateTestClass()
+        let dataDelegate = GBLPingTestObject()
         
         // assert delegate assigned
-        XCTAssertNotNil(GBLPing.shared.delegate, "delegate should not be nil, shoudl be automatically claimed by test class")
+        XCTAssertNotNil(GBLPing.service.delegate, "delegate should not be nil, shoudl be automatically claimed by test class")
         
         // test with above class
-        XCTAssert(GBLPing.shared.lastPingEventType == .pingReadyToStart, "event type should indicate that event has already occured")
+        XCTAssert(GBLPing.service.lastPingEventType == .pingReadyToStart, "event type should indicate that event has already occured")
         XCTAssert(dataDelegate.lastPingDescription == "", "description should be empty string before a ping is run")
         
         // ping with maximum specifier
-        GBLPing.shared.pingHostname(hostname: "gigabitelabs.com", maxPings: 10)
+        GBLPing.service.pingHostname(hostname: "gigabitelabs.com", maxPings: 10)
         
         // create an async operation with pingHostname
-        let operation = AsyncOperation { GBLPing.shared.pingHostname(hostname: "gigabitelabs.com") }
+        // TODO: Replace with expectation
+        let operation = AsyncOperation { GBLPing.service.pingHostname(hostname: "gigabitelabs.com") }
         let expectation = self.expectation(description: "pinging a hostname should succeed")
 
         // perform the operation

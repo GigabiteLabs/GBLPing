@@ -8,6 +8,7 @@
 import XCTest
 import GBLPing
 
+// TODO: Replace with expectation
 public struct AsyncOperation<Value> {
     let queue: DispatchQueue = .main
     let closure: () -> Value
@@ -33,17 +34,17 @@ class GBLPingFrameworkTests: XCTestCase {
     func test_1_GBLPingDelegateClass(){
         print("\n\n************ Testing GBLPingDelegate ************")
         // setup new test class
-        let delegateTest = GBLPingDelegateTestClass()
+        let delegateTest = GBLPingTestObject()
         
         // assert delegate assigned
-        XCTAssertNotNil(GBLPing.shared.delegate, "delegate should not be nil, shoudl be automatically claimed by test class")
+        XCTAssertNotNil(GBLPing.service.delegate, "delegate should not be nil, shoudl be automatically claimed by test class")
         
         // test with above class
-        XCTAssert(GBLPing.shared.lastPingEventType == .pingReadyToStart, "event type should indicate that event has already occured")
+        XCTAssert(GBLPing.service.lastPingEventType == .pingReadyToStart, "event type should indicate that event has already occured")
         XCTAssert(delegateTest.lastPingDescription == "", "description should be empty string before a ping is run")
         
         // create an async operation with pingHostname
-        let operation = AsyncOperation { GBLPing.shared.pingHostname(hostname: "developer.gigabitelabs.com") }
+        let operation = AsyncOperation { GBLPing.service.pingHostname(hostname: "developer.gigabitelabs.com") }
         let expectation = self.expectation(description: "pinging a hostname should succeed")
 
         // perform the operation
@@ -56,25 +57,24 @@ class GBLPingFrameworkTests: XCTestCase {
         
         // test outcome
         
-        
         // ping
-        GBLPing.shared.pingHostname(hostname: "developer.gigabitelabs.com")
+        GBLPing.service.pingHostname(hostname: "developer.gigabitelabs.com")
     }
     
     func test_2_GBLDataDelegate(){
         print("\n\n************ Testing GBLDataDelegate ************")
         // setup new test class
-        let dataDelegate = GBLPingDelegateTestClass()
+        let dataDelegate = GBLPingTestObject()
         
         // assert delegate assigned
-        XCTAssertNotNil(GBLPing.shared.delegate, "delegate should not be nil, shoudl be automatically claimed by test class")
+        XCTAssertNotNil(GBLPing.service.delegate, "delegate should not be nil, shoudl be automatically claimed by test class")
         
         // test with above class
-        XCTAssert(GBLPing.shared.lastPingEventType == .pingReadyToStart, "event type should indicate that event has already occured")
+        XCTAssert(GBLPing.service.lastPingEventType == .pingReadyToStart, "event type should indicate that event has already occured")
         XCTAssert(dataDelegate.lastPingDescription == "", "description should be empty string before a ping is run")
         
         // ping
-        GBLPing.shared.pingHostname(hostname: "developer.gigabitelabs.com")
+        GBLPing.service.pingHostname(hostname: "developer.gigabitelabs.com")
         
         // re-run, measuring performance
         self.measure {

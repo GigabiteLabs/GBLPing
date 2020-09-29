@@ -20,16 +20,15 @@ public extension GBLPingService {
         addNewResult(result: newResult)
         
         let msg = "starting ping service"
-        
-        delegate?.gblPingEventDidOccur(event: .pingWillStart, description: msg, unexpectedEventType: nil)
-        dataDelegate?.gblPingEventDidOccur(event: .pingDidStop, description: msg, unexpectedEventType: nil)
+        delegate?.pingEventOccured(event: .pingWillStart, description: msg, unexpectedEventType: nil)
+        dataDelegate?.pingEventOccured(event: .pingDidStop, description: msg, unexpectedEventType: nil)
     }
     
     func pingerDidStop() {
         let msg = "the ping service has been stopped"
         lastPingEventType = .pingDidStop
-        delegate?.gblPingEventDidOccur(event: .pingDidStop, description: msg, unexpectedEventType: nil)
-        dataDelegate?.gblPingEventDidOccur(event: .pingDidStop, description: msg, unexpectedEventType: nil)
+        delegate?.pingEventOccured(event: .pingDidStop, description: msg, unexpectedEventType: nil)
+        dataDelegate?.pingEventOccured(event: .pingDidStop, description: msg, unexpectedEventType: nil)
     }
     
     func simplePing(_ pinger: SimplePing, didStartWithAddress address: Data) {
@@ -61,8 +60,8 @@ public extension GBLPingService {
         updateCurrentresult(result: pingResult)
         
         // Notify delegate
-        delegate?.gblPingEventDidOccur(event: .pingDidStart, description: msg, unexpectedEventType: nil)
-        dataDelegate?.gblPingEventDidOccur(event: .pingDidStart, description: msg, unexpectedEventType: nil)
+        delegate?.pingEventOccured(event: .pingDidStart, description: msg, unexpectedEventType: nil)
+        dataDelegate?.pingEventOccured(event: .pingDidStart, description: msg, unexpectedEventType: nil)
     }
     
     func simplePing(_ pinger: SimplePing, didSendPacket packet: Data, sequenceNumber: UInt16) {
@@ -81,8 +80,8 @@ public extension GBLPingService {
         updateCurrentresult(result: pingResult)
         
         // nofity delegates
-        delegate?.gblPingEventDidOccur(event: .packetSent, description: msg, unexpectedEventType: nil)
-        dataDelegate?.gblPingEventDidOccur(event: .packetSent, description: msg, unexpectedEventType: nil)
+        delegate?.pingEventOccured(event: .packetSent, description: msg, unexpectedEventType: nil)
+        dataDelegate?.pingEventOccured(event: .packetSent, description: msg, unexpectedEventType: nil)
         // update event
         lastPingEventType = .packetSent
         
@@ -98,12 +97,12 @@ public extension GBLPingService {
         let shortError = self.shortErrorFromError(error: error as NSError)
         let msg = "ping sequence #\(sequenceNumber) failed to send with error: \(shortError)"; print(msg)
         // Notify delegate
-        delegate?.gblPingEventDidOccur(
+        delegate?.pingEventOccured(
             event: .pingFailure,
             description: msg,
             unexpectedEventType: .internalError
         )
-        dataDelegate?.gblPingEventDidOccur(event: .pingFailure, description: msg, unexpectedEventType: .internalError)
+        dataDelegate?.pingEventOccured(event: .pingFailure, description: msg, unexpectedEventType: .internalError)
         // evalute if ping attempts were maxed out
         checkIfMaxPingsReached()
     }
@@ -156,12 +155,12 @@ public extension GBLPingService {
         // gather data and log for debugging
         let msg = "failed: \(self.shortErrorFromError(error: error as NSError))"; print(msg); NSLog(msg)
         // Notify delegate
-        delegate?.gblPingEventDidOccur(
+        delegate?.pingEventOccured(
             event: .pingFailure,
             description: msg,
             unexpectedEventType: .unkownError
         )
-        dataDelegate?.gblPingEventDidOccur(event: .pingFailure, description: msg, unexpectedEventType: .unkownError)
+        dataDelegate?.pingEventOccured(event: .pingFailure, description: msg, unexpectedEventType: .unkownError)
         // update event
         lastPingEventType = .pingFailure
     }
@@ -186,7 +185,7 @@ public extension GBLPingService {
         
         // notify delegates
         dataDelegate?.pingResult(result: pingResult)
-        delegate?.gblPingEventDidOccur(event: .responsePacketRecieved, description: pingResult.resultMessage ?? "", unexpectedEventType: nil)
+        delegate?.pingEventOccured(event: .responsePacketRecieved, description: pingResult.resultMessage ?? "", unexpectedEventType: nil)
     }
     /// A delegate function that handles reception of an unexpected packet as a response to a ping.
     func simplePing(_ pinger: SimplePing, didReceiveUnexpectedPacket packet: Data) {
@@ -209,6 +208,6 @@ public extension GBLPingService {
         
         // notify delegates
         dataDelegate?.pingResult(result: pingResult)
-        delegate?.gblPingEventDidOccur(event: .unexpectedPacketRecieved, description: msg, unexpectedEventType: .packetDiscrepancy)
+        delegate?.pingEventOccured(event: .unexpectedPacketRecieved, description: msg, unexpectedEventType: .packetDiscrepancy)
     }
 }

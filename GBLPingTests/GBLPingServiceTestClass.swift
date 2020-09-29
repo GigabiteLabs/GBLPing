@@ -8,30 +8,33 @@
 import Foundation
 import GBLPing
 
-class GBLPingDelegateTestClass: GBLPingDelegate {
+class GBLPingTestObject: GBLPingDelegate {
     // Setup default types
     var lastPingDescription: String = ""
     var lastUnexpectedEvent: GBLPingUnexpectedEvent? = nil
     
     init() {
-        GBLPing.shared.delegate = self
+        GBLPing.service.delegate = self
     }
     
-    func gblPingEventDidOccur(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
+    func pingEventOccured(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
         print("pingEvent: \(event.rawValue)")
         print("unexpectedEventType: \(unexpectedEventType?.rawValue ?? "(nil)")")
         print("pingEvent Description: \(description)\n\n")
-        
         self.lastPingDescription = description
         self.lastUnexpectedEvent = unexpectedEventType
+    }
+    
+    func pingError(error: GBLPingUnexpectedEvent) {
+        print("Ping ERROR: \(error.rawValue)")
     }
 }
 
 
-class GBLPingDataDelegateTestClass: GBLPingDataDelegate {
+class GBLPingDataTestObject: GBLPingDataDelegate {
     init() {
-        GBLPing.shared.delegate = self
-        GBLPing.shared.dataDelegate = self
+        GBLPing.service.delegate = self
+        GBLPing.service.dataDelegate = self
     }
     
     func pingResult(result: GBLPingResult) {
@@ -39,7 +42,11 @@ class GBLPingDataDelegateTestClass: GBLPingDataDelegate {
         print(result)
     }
     
-    func gblPingEventDidOccur(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
+    func pingEventOccured(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?) {
         print("\(description)\n")
+    }
+    
+    func pingError(error: GBLPingUnexpectedEvent) {
+        print("Ping ERROR: \(error.rawValue)")
     }
 }

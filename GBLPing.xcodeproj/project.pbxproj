@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37565E442523AFEE001D0F76 /* GBLPingService+Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37565E432523AFEE001D0F76 /* GBLPingService+Caching.swift */; };
+		37565E552523B08E001D0F76 /* GBLPingService+PingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37565E542523B08E001D0F76 /* GBLPingService+PingFunctions.swift */; };
+		37565E5A2523BB04001D0F76 /* GBLPingIPVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37565E592523BB04001D0F76 /* GBLPingIPVersion.swift */; };
+		37565E5F2523BEFD001D0F76 /* GBLPingService+ForcingIPVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37565E5E2523BEFD001D0F76 /* GBLPingService+ForcingIPVersion.swift */; };
 		377A80972466004A008F67C1 /* GBLPingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5482445B9220089ACEC /* GBLPingTests.swift */; };
 		377A80982466004A008F67C1 /* GBLPingServiceTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5902445DFE80089ACEC /* GBLPingServiceTestClass.swift */; };
 		377A809A24663373008F67C1 /* GBLPingOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A809924663373008F67C1 /* GBLPingOperationsTests.swift */; };
@@ -34,8 +38,8 @@
 		37F7A5812445D4B30089ACEC /* GBLPingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5802445D4B30089ACEC /* GBLPingDelegate.swift */; };
 		37F7A5832445D4E30089ACEC /* GBLPingUnexpectedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5822445D4E30089ACEC /* GBLPingUnexpectedEvent.swift */; };
 		37F7A5852445D5060089ACEC /* GBLPingEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5842445D5060089ACEC /* GBLPingEvent.swift */; };
-		37F7A5872445D5310089ACEC /* GBLPing+PingHostname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5862445D5310089ACEC /* GBLPing+PingHostname.swift */; };
-		37F7A5892445D5A20089ACEC /* GBLPing+DelegateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5882445D5A20089ACEC /* GBLPing+DelegateFunctions.swift */; };
+		37F7A5872445D5310089ACEC /* GBLPingService+PingHostname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5862445D5310089ACEC /* GBLPingService+PingHostname.swift */; };
+		37F7A5892445D5A20089ACEC /* GBLPingService+DelegateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A5882445D5A20089ACEC /* GBLPingService+DelegateFunctions.swift */; };
 		37F7A58B2445D80B0089ACEC /* GBLPing+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A58A2445D80B0089ACEC /* GBLPing+Utils.swift */; };
 		37F7A58D2445DCA10089ACEC /* GBLPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A58C2445DCA10089ACEC /* GBLPing.swift */; };
 		37F7A58F2445DF0D0089ACEC /* GBLPingServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7A58E2445DF0D0089ACEC /* GBLPingServiceProtocol.swift */; };
@@ -89,6 +93,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37565E432523AFEE001D0F76 /* GBLPingService+Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPingService+Caching.swift"; sourceTree = "<group>"; };
+		37565E542523B08E001D0F76 /* GBLPingService+PingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPingService+PingFunctions.swift"; sourceTree = "<group>"; };
+		37565E592523BB04001D0F76 /* GBLPingIPVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBLPingIPVersion.swift; sourceTree = "<group>"; };
+		37565E5E2523BEFD001D0F76 /* GBLPingService+ForcingIPVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPingService+ForcingIPVersion.swift"; sourceTree = "<group>"; };
 		377A809924663373008F67C1 /* GBLPingOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBLPingOperationsTests.swift; sourceTree = "<group>"; };
 		37992048222891D100DFC25D /* GBLPingExampleExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBLPingExampleExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799204B222891D100DFC25D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,8 +136,8 @@
 		37F7A5802445D4B30089ACEC /* GBLPingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBLPingDelegate.swift; sourceTree = "<group>"; };
 		37F7A5822445D4E30089ACEC /* GBLPingUnexpectedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBLPingUnexpectedEvent.swift; sourceTree = "<group>"; };
 		37F7A5842445D5060089ACEC /* GBLPingEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBLPingEvent.swift; sourceTree = "<group>"; };
-		37F7A5862445D5310089ACEC /* GBLPing+PingHostname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPing+PingHostname.swift"; sourceTree = "<group>"; };
-		37F7A5882445D5A20089ACEC /* GBLPing+DelegateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPing+DelegateFunctions.swift"; sourceTree = "<group>"; };
+		37F7A5862445D5310089ACEC /* GBLPingService+PingHostname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPingService+PingHostname.swift"; sourceTree = "<group>"; };
+		37F7A5882445D5A20089ACEC /* GBLPingService+DelegateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPingService+DelegateFunctions.swift"; sourceTree = "<group>"; };
 		37F7A58A2445D80B0089ACEC /* GBLPing+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBLPing+Utils.swift"; sourceTree = "<group>"; };
 		37F7A58C2445DCA10089ACEC /* GBLPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBLPing.swift; sourceTree = "<group>"; };
 		37F7A58E2445DF0D0089ACEC /* GBLPingServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBLPingServiceProtocol.swift; sourceTree = "<group>"; };
@@ -310,13 +318,17 @@
 				37F7A5802445D4B30089ACEC /* GBLPingDelegate.swift */,
 				37F7A5822445D4E30089ACEC /* GBLPingUnexpectedEvent.swift */,
 				37F7A5842445D5060089ACEC /* GBLPingEvent.swift */,
-				37F7A5862445D5310089ACEC /* GBLPing+PingHostname.swift */,
-				37F7A5882445D5A20089ACEC /* GBLPing+DelegateFunctions.swift */,
+				37F7A5862445D5310089ACEC /* GBLPingService+PingHostname.swift */,
+				37F7A5882445D5A20089ACEC /* GBLPingService+DelegateFunctions.swift */,
 				37F7A58A2445D80B0089ACEC /* GBLPing+Utils.swift */,
 				37F7A58C2445DCA10089ACEC /* GBLPing.swift */,
 				37F7A58E2445DF0D0089ACEC /* GBLPingServiceProtocol.swift */,
 				37F7A5B62445F0470089ACEC /* GBLPingResult.swift */,
 				37F7A5B82445F51F0089ACEC /* GBLPingDataDelegate.swift */,
+				37565E432523AFEE001D0F76 /* GBLPingService+Caching.swift */,
+				37565E542523B08E001D0F76 /* GBLPingService+PingFunctions.swift */,
+				37565E592523BB04001D0F76 /* GBLPingIPVersion.swift */,
+				37565E5E2523BEFD001D0F76 /* GBLPingService+ForcingIPVersion.swift */,
 			);
 			path = GBLPing;
 			sourceTree = "<group>";
@@ -526,9 +538,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37F7A5872445D5310089ACEC /* GBLPing+PingHostname.swift in Sources */,
+				37565E5F2523BEFD001D0F76 /* GBLPingService+ForcingIPVersion.swift in Sources */,
+				37F7A5872445D5310089ACEC /* GBLPingService+PingHostname.swift in Sources */,
+				37565E5A2523BB04001D0F76 /* GBLPingIPVersion.swift in Sources */,
 				37F7A58F2445DF0D0089ACEC /* GBLPingServiceProtocol.swift in Sources */,
 				37F7A5812445D4B30089ACEC /* GBLPingDelegate.swift in Sources */,
+				37565E442523AFEE001D0F76 /* GBLPingService+Caching.swift in Sources */,
 				37F7A5832445D4E30089ACEC /* GBLPingUnexpectedEvent.swift in Sources */,
 				37F7A5792445BCCB0089ACEC /* SimplePing.m in Sources */,
 				37F7A5B72445F0470089ACEC /* GBLPingResult.swift in Sources */,
@@ -538,8 +553,9 @@
 				37F7A58D2445DCA10089ACEC /* GBLPing.swift in Sources */,
 				37F7A5B92445F51F0089ACEC /* GBLPingDataDelegate.swift in Sources */,
 				37F7A55C2445BA600089ACEC /* GBLPingService.swift in Sources */,
-				37F7A5892445D5A20089ACEC /* GBLPing+DelegateFunctions.swift in Sources */,
+				37F7A5892445D5A20089ACEC /* GBLPingService+DelegateFunctions.swift in Sources */,
 				37F7A57A2445BCCB0089ACEC /* MacFinder.m in Sources */,
+				37565E552523B08E001D0F76 /* GBLPingService+PingFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
