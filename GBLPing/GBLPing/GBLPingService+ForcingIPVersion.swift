@@ -16,26 +16,22 @@ extension GBLPingService {
     ///     - ipVersion: a `GBLPingIPVersion` configuration that will restrict
     ///     the ping service to the configured icmp IP version.
     ///     - hostname: the hostname to ping, e.g.: gigabitelabs.com
-    /// 
+    ///
     /// - Warning: If you use this function, make sure you
     /// also manually configure your application to stop, or it will
     /// continue indefinitely. In some cases, this could cause issues
     /// if not handled properly.
     ///
     public func pingHostnameForcing(ipVersion: GBLPingIPVersion, hostname: String) {
-        // reset for new operation
-        reset(for: hostname)
-        pingerWillStart()
+        // setup ip configuration
         switch ipVersion {
         case .ipv4:
             pinger?.addressStyle = .icmPv4
         case .ipv6:
             pinger?.addressStyle = .icmPv6
         }
-        // setup simple ping & start
-        pinger = SimplePing(hostName: hostname)
-        pinger?.delegate = self
-        pinger?.start()
+        // start service
+        startPinging(hostname)
     }
     /// Pings a hostname stopping after a designated number
     /// of pings, while explicitly forcing ping events to use
@@ -74,7 +70,7 @@ extension GBLPingService {
     public func pingHostnameForcing(ipVersion: GBLPingIPVersion, hostname: String, stopAfter seconds: Int) {
         // Ensure the setting for max pings is not zero.
         if !(seconds > 1) {
-            delegate?.pingError(error: .maxPingsInvalid)
+            delegate?.pingError(error: .timeLimitInvalid)
         }
         // set max ping configuration on service
         self.timeLimit = seconds

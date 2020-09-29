@@ -8,29 +8,45 @@
 import Foundation
 
 /// Conforming objects will recieve messages from GBLPing for all service events.
-public protocol GBLPingDelegate {
-    /// Called when either a success or an unexpected event occured
+@objc public protocol GBLPingDelegate {
+    /// Called when a normal `GBLPingService` event occurs. (e.g. not
+    /// an error or unexpected event.
     ///
     /// - Parameters:
     ///     - event: a `GBLPingEvent` object ecapsulating the
     ///     attributes of the actual ping operation
-    ///     - description: a `String` description of the event
-    ///     - unexpectedEventType: an optional `GBLPingUnexpectedEvent`
-    ///     object that, if returned, serves as a flag and desriptor to the consuming
-    ///     application that something unexpected occured, and what it was.
     ///
-    /// - Note: Unexpected events are not necessarily failures, weird stuff sometimes happens with packets during transport.
-    /// That being said, an unexpected event is a good time to run some logic to handle these edge cases
-    func pingEventOccured(event: GBLPingEvent, description: String, unexpectedEventType: GBLPingUnexpectedEvent?)
-    /// Called when an error occurs. Can be called for usage & Config
-    /// errors, as well as Ping errors.
+    func gblPingEvent(_ event: GBLPingEvent)
+    /// Called when an unexpected event occurs
+    ///
+    /// - Parameters:
+    ///     - type: a `GBLPingUnexpectedEvent` object describing the type of
+    ///     unexpected event that occured.
+    ///
+    /// - Note: Get the event description by accessing the .description property from
+    ///  the returned value.
+    ///
+    ///  Example:
+    ///
+    ///     ```swift
+    ///     let msg: String = type.description
+    ///     print("unexpected event msg: \(msg)")
+    ///     ```
+    ///
+    /// Unexpected events are not necessarily failures, weird stuff sometimes happens with packets during transport.
+    /// That being said, an unexpected event is a good time to run some logic to handle these edge cases.
+    ///
+    func gblPingUnexpected(event: GBLPingUnexpectedEvent)
+    /// Called when an error occurs during a ping service event is in progress,
+    /// or while the service is being configured or deallocated.
+    /// Can be called for usage & config errors, as well as ping errors.
     ///
     /// - Parameters:
     ///     - error: `GBLPingUnexpectedEvent` that describes
-    ///     the type of error that occured.
+    ///     the explicit type error that occured.
     ///
     /// - Note: Use error.rawValue to retrieve the error description
     /// string with more detailed error information.
     ///
-    func pingError(error: GBLPingUnexpectedEvent)
+    func gblPingError(_ error: GBLPingUnexpectedEvent)
 }

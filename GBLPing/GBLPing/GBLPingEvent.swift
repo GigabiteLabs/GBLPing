@@ -8,11 +8,32 @@
 import Foundation
 
 /// An enum representing all of the known & supported event outcomes resulting from an attempt to ping.
-public enum GBLPingEvent: String, CaseIterable, Codable {
-    // Messages
+@objc public enum GBLPingEvent: Int, Codable {
+    // TODO: Evaluate these
     case debugMessage, infoMessage
     // Lifecycle events
-    case pingReadyToStart, pingWillStart, pingDidStart, pingDidStop, pingMaximumReached
+    case pingReadyToStart
+    case pingWillStart
+    case pingDidStart
+    case pingDidStop
+    case pingMaximumReached
+    // Expirations
+    case pingTimeExpired
+    case maxPingsReached
     // Outcomes
-    case responsePacketRecieved, packetSent, pingFailure, unexpectedPacketRecieved, unexpectedEvent
+    case responsePacketRecieved
+    case packetSent
+    case pingFailure
+    case unexpectedPacketRecieved
+    case unexpectedEvent
+    /// A case indicating the default state when
+    /// retrieved from a `GBLPingResult` object.
+    ///
+    /// - Note: This essentially means that
+    /// no actual event occured yet, the object was
+    /// just initialized.
+    ///
+    /// File a bug report if this is passed to your delegate.
+    ///
+    case resultInitialized
 }

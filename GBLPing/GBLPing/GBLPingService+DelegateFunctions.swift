@@ -32,6 +32,11 @@ public extension GBLPingService {
     }
     
     func simplePing(_ pinger: SimplePing, didStartWithAddress address: Data) {
+        // start the timer if exits
+        if let timeLimit = timeLimit {
+            perform(#selector(timeExpired), with: nil, afterDelay: TimeInterval(timeLimit))
+        }
+        
         // send the ping!
         pinger.send(with: nil)
         

@@ -7,7 +7,7 @@
 //
 import Foundation
 
-/// A class representation of GBLPing as a
+/// A class representation of GBLPing as an instantiatable service.
 public final class GBLPingService: NSObject, SimplePingDelegate  {
     /// Assignable to an object conforming to `GBLPingDelegate` protocal
     /// delegated responsibility for recieving notifications for
@@ -36,6 +36,9 @@ public final class GBLPingService: NSObject, SimplePingDelegate  {
     /// A configuration setting describing the number of seconds
     /// that a ping sessing should automatically stop after.
     internal var timeLimit: Int?
+    /// A holder var for a timer, instantiated when a ping event
+    /// is started that limited to a number of seconds.
+    internal var timer: Timer?
     /// A private var to track the number of pings sent during an operation with limitations applied
     /// on the maximum number of pings to send
     internal var pingAttempts: Int?
@@ -69,12 +72,7 @@ public final class GBLPingService: NSObject, SimplePingDelegate  {
     ///
     public func pingHostname(hostname: String) {
         // reset for new operation
-        reset(for: hostname)
-        // Setup simple ping & start
-        pinger = SimplePing(hostName: hostname)
-        pinger?.delegate = self
-        pingerWillStart()
-        pinger?.start()
+        startPinging(hostname)
     }
     /// Pings a hostname stopping after a designated number
     /// of pings.
