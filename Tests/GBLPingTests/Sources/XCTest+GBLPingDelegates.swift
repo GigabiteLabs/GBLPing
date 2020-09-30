@@ -82,7 +82,6 @@ extension XCTest: GBLPingDelegate, GBLPingDataDelegate{
         }
         // append to results
         Test.ctrl.pingResults?.append(result)
-        // invoke if set
         Test.ctrl.resultExpectation?.fulfill()
     }
 }

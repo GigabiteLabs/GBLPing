@@ -27,6 +27,10 @@ class GBLPingTestController {
     var lastPingError: GBLPingUnexpectedEvent?
     /// A shared var for ping expectation caching
     var resultExpectation: XCTestExpectation?
+    /// A shared var for ping expectation caching
+    var eventExpectation: XCTestExpectation?
+    /// The default host to use during ping tests
+    var defaultPingHost = "ns.cloudflare.com"
     /// Resets all controller variables to nil or empty
     func reset() {
         Test.ctrl.pingEvents = nil

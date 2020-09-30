@@ -16,7 +16,6 @@ public extension GBLPingService {
         lastPingEventType = .pingWillStart
         // add new result
         let newResult = GBLPingResult()
-        
         if let currentSequenceID = currentSequenceID {
             newResult.sequenceID = currentSequenceID
         }
@@ -50,12 +49,8 @@ public extension GBLPingService {
         }
         // capture ipv4 as target host in any case
         pingResult.targetHostIP = translatedAddress
-        
-        // gather data and log for debugging
-        let stringRep = displayAddressForAddress(address: address as NSData)
-        let msg = "ping service started pinging recipient at IP address \(stringRep)"
-        pingResult.resultMessage = msg
-        
+        pingResult.targetHost = pinger.hostName
+        pingResult.resultMessage = "ping service started pinging recipient at IP address \(pingResult.targetHostIP)"
         updatePingResults(result: pingResult)
     }
     
@@ -64,7 +59,7 @@ public extension GBLPingService {
         let pingResult = latestResult()
         pingResult.startTime = Int(NSDate().timeIntervalSince1970)
         pingResult.rawPacket = packet
-        pingResult.pingSequenceNumber = sequenceNumber
+        pingResult.pingSequenceNumber = Int(sequenceNumber)
         pingResult.bytes = packet.count
         
         // gather data and log for debugging
@@ -73,16 +68,25 @@ public extension GBLPingService {
         
         // update event
         lastPingEventType = .packetSent
-        
         updatePingResults(result: pingResult)
+        
+        // check if we've reached max
+        checkIfMaxPingsReached()
     }
     
     func simplePing(_ pinger: SimplePing, didFailToSendPacket packet: Data, sequenceNumber: UInt16, error: Error, completion: @escaping (Bool)-> Void) {
+        let pingResult = latestResult()
         // gather data and log for debugging
         let shortError = self.shortErrorFromError(error: error as NSError)
-        let msg = "ping sequence #\(sequenceNumber) failed to send with error: \(shortError)"; print(msg)
+        let msg = "ping sequence #\(sequenceNumber) failed to send with error: \(shortError)"
+        pingResult.resultMessage = msg
+        pingResult.failureEventTime = Int(NSDate().timeIntervalSince1970)
+        updatePingResults(result: pingResult)
+        
         // update event
         lastPingEventType = .pingFailure
+        // Check if it should stop
+        checkIfStopScheduled()
     }
 }
 
@@ -95,6 +99,8 @@ public extension GBLPingService {
         // gather data and log for debugging
         let msg = "failed: \(self.shortErrorFromError(error: error as NSError))"; print(msg); NSLog(msg)
         print("GBLPing ::: ERROR ::: \(msg)")
+        // Check if it should stop
+        checkIfStopScheduled()
     }
     /// A delegate function that handles reception of a response to a ping.
     func simplePing(_ pinger: SimplePing, didReceivePingResponsePacket packet: Data, sequenceNumber: UInt16) {
@@ -102,19 +108,19 @@ public extension GBLPingService {
         // capture start time & data
         pingResult.endTime = Int(NSDate().timeIntervalSince1970)
         pingResult.rawPacket = packet
-        pingResult.pingSequenceNumber = sequenceNumber
+        pingResult.pingSequenceNumber = Int(sequenceNumber)
         pingResult.bytes = packet.count
         
         // setup message string
         pingResult.resultMessage = "ping sequence #\(sequenceNumber) received, size: \(packet.count)"
-        
         // update event
         lastPingEventType = .responsePacketRecieved
         // notify delegate
         dataDelegate?.gblPingResult(result: pingResult)
-        
         // reset for next ping
         resetPingResult()
+        // Check if it should stop
+        checkIfStopScheduled()
     }
     /// A delegate function that handles reception of an unexpected packet as a response to a ping.
     func simplePing(_ pinger: SimplePing, didReceiveUnexpectedPacket packet: Data) {
@@ -133,5 +139,7 @@ public extension GBLPingService {
         lastPingEventType = .unexpectedPacketRecieved
         // notify delegate
         dataDelegate?.gblPingResult(result: pingResult)
+        // Check if it should stop
+        checkIfStopScheduled()
     }
 }

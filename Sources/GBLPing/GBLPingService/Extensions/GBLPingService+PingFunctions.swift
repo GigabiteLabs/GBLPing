@@ -20,6 +20,7 @@ extension GBLPingService {
     ///     service events will be targeted.
     ///
     internal func startPinging(_ hostname: String){
+        print("Internal: \(#function)")
         resetPingEventVars()
         // setup / reset the result type for current service operation
         lastPingEventType = .pingReadyToStart
@@ -33,12 +34,18 @@ extension GBLPingService {
         pingerWillStart()
         // start
         pinger?.start()
+        // setup repeat timer
+        setupPingTimer()
     }
+
     /// Stops the ping service with tightly
     /// controlled service suspension, delegate
     /// notification, service deallocation and
     /// variable resets.
     public func stop() {
+        print("Internal: \(#function)")
+        // stop the timer
+        stopTimer()
         // stop the pinger
         pinger?.stop()
         // notify the delegate
@@ -49,9 +56,30 @@ extension GBLPingService {
         // default values
         resetPingEventVars()
     }
+    func setupPingTimer() {
+        sendTimer = Timer.scheduledTimer(timeInterval: 1.0,
+                                         target: self,
+                                         selector: #selector(sendPing),
+                                         userInfo: nil,
+                                         repeats: true)
+        
+    }
+    func stopTimer() {
+        sendTimer?.invalidate()
+        sendTimer = nil
+    }
+    /// Sends a ping.
+    ///
+    /// Called to send a ping, both directly (as soon as the SimplePing object starts up) and
+    /// via a timer (to continue sending pings periodically).
+    
+    @objc internal func sendPing() {
+        self.pinger!.send(with: nil)
+    }
     /// Stops the ping service with after
     /// a configured timer expired.
     @objc internal func timeExpired() {
+        print("Internal: \(#function)")
         // notify the delegate
         delegate?.gblPingEvent(.pingTimeExpired)
         // stop the service
@@ -62,11 +90,13 @@ extension GBLPingService {
 fileprivate extension GBLPingService {
     /// Sets all services instances nil.
     func deallocateFrameworks() {
+        print("Internal: \(#function)")
         pinger = nil
     }
     /// Resets all config & state variables related to a ping event.
     func resetPingEventVars() {
-        maxPings = nil
+        print("Internal: \(#function)")
+        stopScheduled = false
         timeLimit = nil
         pingAttempts = nil
     }

@@ -19,7 +19,7 @@ class GBLPingFrameworkTests: XCTestCase {
     }
     
     func test1GBLPingDelegateClass() {
-        print("\n\n************ Testing GBLPingDelegate ************")
+        print("\n\n************ \(#function) ************")
         becomeDelegate(selfRef: self)
         assertGBLDefaultConfig()
         assertTestControllerDefaultConfig()
@@ -32,13 +32,30 @@ class GBLPingFrameworkTests: XCTestCase {
     }
     
     func test2GBLDataDelegate() {
-        print("\n\n************ Testing GBLDataDelegate ************")
+        print("\n\n************ \(#function) ************")
         let exp = expectation(description: "a single ping should succeed")
         executeAsync(id: #function, exp: exp)
         
         // ping
         GBLPing.service.pingHostname(hostname: "ns.cloudflare.com")
         wait(for: [exp], timeout: 10)
+    }
+    
+    func test3MaxPingAttempts() {
+        print("\n\n************ \(#function) ************")
+        // max attempts
+        let maxAttempts = 8
+        let exp = expectation(description: "a single ping should succeed")
+        exp.expectedFulfillmentCount = maxAttempts
+        Test.ctrl.eventExpectation = exp
+        //executeAsync(id: #function, exp: exp)
+        
+        // ping
+        GBLPing.service.pingHostname(hostname: Test.ctrl.defaultPingHost, maxPings: maxAttempts)
+        wait(for: [Test.ctrl.eventExpectation!], timeout: 10)
+        
+        print(Test.ctrl.pingResults?.toJSONString(options: .prettyPrinted))
+        XCTAssertEqual(Test.ctrl.pingResults?.count, maxAttempts)
     }
     
     func testPerformance() throws {

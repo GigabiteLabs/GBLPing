@@ -14,7 +14,7 @@ import Foundation
     /// The number of bytes that represent the data size of the result.
     var bytes: Int = 0
     /// The sequence number of the this result within the overall ping event type.
-    var pingSequenceNumber: UInt16?
+    var pingSequenceNumber: Int = 0
     /// The type of event that produced the result.
     var event: GBLPingEvent = .resultInitialized
     /// Time ping event started in UTC epoch.
@@ -41,6 +41,10 @@ import Foundation
     var unexpectedEvent: GBLPingUnexpectedEvent = .resultInitialized
     /// Time the unexpected event occured.
     var unexpectedEventTime: Int = 0
+    /// Flag for if an failure event occured.
+    var failureEvent: GBLPingUnexpectedEvent?
+    /// Time the failure  event occured.
+    var failureEventTime: Int?
     /// The raw response data.
     var rawPacket: Data = Data()
     /// Result message.
@@ -63,6 +67,8 @@ import Foundation
         case ipv6Address
         case unexpectedEvent
         case unexpectedEventTime
+        case failureEvent
+        case failureEventTime
         case rawPacket
         case resultMessage
     }
@@ -82,6 +88,8 @@ import Foundation
         try container.encode(ipv6Address, forKey: .ipv6Address)
         try container.encode(unexpectedEvent.rawValue, forKey: .unexpectedEvent)
         try container.encode(unexpectedEventTime, forKey: .unexpectedEventTime)
+        try container.encodeIfPresent(failureEvent?.rawValue, forKey: .failureEvent)
+        try container.encodeIfPresent(failureEventTime, forKey: .failureEventTime)
         try container.encode(rawPacket, forKey: .rawPacket)
         try container.encode(resultMessage, forKey: .resultMessage)
         
@@ -91,7 +99,7 @@ import Foundation
         let container = try decoder.container(keyedBy: CodingKeys.self)
         sequenceID = try container.decode(String.self, forKey: .sequenceID)
         bytes = try container.decode(Int.self, forKey: .bytes)
-        pingSequenceNumber = try container.decode(UInt16.self, forKey: .pingSequenceNumber)
+        pingSequenceNumber = try container.decode(Int.self, forKey: .pingSequenceNumber)
         event = try container.decode(GBLPingEvent.self, forKey: .event)
         startTime = try container.decode(Int.self, forKey: .startTime)
         endTime = try container.decode(Int.self, forKey: .endTime)
@@ -102,7 +110,9 @@ import Foundation
         ipv6Forced = try container.decode(Bool.self, forKey: .ipv6Forced)
         ipv6Address = try container.decode(String.self, forKey: .ipv6Address)
         unexpectedEvent = try container.decode(GBLPingUnexpectedEvent.self, forKey: .unexpectedEvent)
-        unexpectedEventTime = try container.decode(Int.self, forKey: .unexpectedEventTime )
+        unexpectedEventTime = try container.decode(Int.self, forKey: .unexpectedEventTime)
+        failureEvent = try container.decode(GBLPingUnexpectedEvent.self, forKey: .failureEvent)
+        failureEventTime = try container.decode(Int.self, forKey: .failureEventTime)
         rawPacket = try container.decode(Data.self, forKey: .rawPacket)
         resultMessage = try container.decode(String.self, forKey: .resultMessage)
         super.init()

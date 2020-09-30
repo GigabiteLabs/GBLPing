@@ -11,21 +11,18 @@ internal extension GBLPingService {
     /// Handles internal checking if a maximum
     /// configured attempts has been reached
     func checkIfMaxPingsReached(){
+        print("Internal: \(#function)")
         // ensure a max was set, or just return
         guard let max = maxPings else {
+            print("no max set")
             return
         }
-        print("max ping config: \(max)")
         // get the current number of attempts
         let attempts = incrementAttempts()
         print("number of attempts: \(attempts)")
         // compare and stop if we've reached the max
         if attempts == max {
-            stop()
-        } else {
-//            let pingResult = latestResult(for: currentSequenceID ?? "")
-//            let latest = latestResult(for: currentSequenceID ?? "")
-//            start(forceIPv4: pingResult.ipv4Forced ?? false, forceIPv6: pingResult.ipv6Forced ?? false, hostname: pingResult.targetHost ?? "gigabitelabs.com")
+            stopScheduled = true
         }
     }
     /// Handles safe incrementation and retrieval of the number
@@ -44,6 +41,13 @@ internal extension GBLPingService {
         } else {
             pingAttempts = 1
             return 1
+        }
+    }
+    
+    func checkIfStopScheduled() {
+        // stop the service if scheduled
+        if stopScheduled {
+            stop()
         }
     }
 }

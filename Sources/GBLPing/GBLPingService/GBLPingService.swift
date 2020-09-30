@@ -25,6 +25,8 @@ public final class GBLPingService: NSObject, SimplePingDelegate  {
     // Class Variables & Types
     /// The SimplePing client
     internal var pinger: SimplePing?
+    /// A timer that sends a new ping on each fire
+    internal var sendTimer: Timer?
     /// An ID representing a unique sequence of ping attempts to which `GBLPingResults` belong.
     internal var currentSequenceID: String?
     private var lastEventType: GBLPingEvent = .pingReadyToStart
@@ -53,6 +55,9 @@ public final class GBLPingService: NSObject, SimplePingDelegate  {
     /// A private var to track the number of pings sent during an operation with limitations applied
     /// on the maximum number of pings to send
     internal var pingAttempts: Int?
+    /// An internal bool that stops the service after the
+    /// next response is recieved.
+    internal var stopScheduled: Bool = false
     /// An optional array of `[GBLPingResult]` that has been cached locally, or nil if none has ever been saved.
     public var pingResults: [GBLPingResult]?
     /// the currently in-process ping event result.
@@ -71,50 +76,5 @@ public final class GBLPingService: NSObject, SimplePingDelegate  {
         // save in-memory results to cache
         // before garbage collection or deinit
 //        cachedResults = pingResults
-    }
-    /// Pings a hostname continuously until either stopped or
-    /// deallocated by the operating system.
-    ///
-    /// - Parameters:
-    ///     - hostname: the hostname to ping, e.g.: gigabitelabs.com
-    ///
-    /// - Warning: If you use this function, make sure you
-    /// also manually configure your application to stop, or it will
-    /// continue indefinitely. In some cases, this could cause issues
-    /// if not handled properly.
-    ///
-    public func pingHostname(hostname: String) {
-        // reset for new operation
-        startPinging(hostname)
-    }
-    /// Pings a hostname stopping after a designated number
-    /// of pings.
-    ///
-    /// - Parameters:
-    ///     - hostname: the hostname to ping, e.g.: gigabitelabs.com
-    ///     - maxPings: the number of ping events the  service should
-    ///     be limited to. The ping service stops automatically
-    ///     when the number of ping events is reached.
-    ///
-    public func pingHostname(hostname: String, maxPings: Int) {
-        // set max configuration on instance
-        self.maxPings = maxPings
-        // pass-through to hostname ping
-        pingHostname(hostname: hostname)
-    }
-    /// Pings a hostname and stops after the configured
-    /// amount of time.
-    ///
-    /// - Parameters:
-    ///     - hostname: the hostname to ping, e.g.: gigabitelabs.com
-    ///     - stopAfter: the amount of time in seconds the ping
-    ///     event should be limited to. The ping service stops automatically
-    ///     when the number of seconds elapses.
-    ///
-    public func pingHostname(hostname: String, stopAfter seconds: Int) {
-        // set max configuration on instance
-        self.timeLimit = seconds
-        // pass-through to hostname ping
-        pingHostname(hostname: hostname)
     }
 }
