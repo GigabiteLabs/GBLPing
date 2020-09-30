@@ -9,7 +9,7 @@
 
 import Foundation
 
-public protocol GBLPingDataDelegate {
+public protocol GBLPingDataDelegate: class {
     /// Called after a ping event completes to provide
     /// the `GBLPingDataDelegate` with a
     /// `GBLPingResult` object created during a ping event.

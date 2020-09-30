@@ -8,7 +8,7 @@
 import Foundation
 
 /// Conforming objects will recieve messages from GBLPing for all service events.
-@objc public protocol GBLPingDelegate {
+@objc public protocol GBLPingDelegate: class {
     /// Called when a normal `GBLPingService` event occurs. (e.g. not
     /// an error or unexpected event.
     ///

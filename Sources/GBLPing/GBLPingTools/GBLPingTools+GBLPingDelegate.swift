@@ -7,6 +7,7 @@
 
 import Foundation
 
-extension GBLPingTools { //: GBLPingDelegate {
+extension GBLPingTools: GBLPingDelegate {
     // TODO: Add ping delegate functions to handle tools events
+    
 }

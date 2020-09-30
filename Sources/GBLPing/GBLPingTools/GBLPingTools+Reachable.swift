@@ -9,10 +9,10 @@ import Foundation
 
 extension GBLPingTools {
     // TODO: add reachability tools
-//    public var internetReachable: Bool {
-//
-//    }
-//    public func hostReachable(_ hostname: String) {
-//
-//    }
+    public var internetReachable: Bool {
+
+    }
+    public func hostReachable(_ hostname: String) {
+        
+    }
 }

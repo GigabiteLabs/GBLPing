@@ -13,7 +13,7 @@ public final class GBLPingService: NSObject, SimplePingDelegate  {
     /// Assignable to an object conforming to `GBLPingDelegate` protocal
     /// delegated responsibility for recieving notifications for
     /// ping service lifecycle events and errors.
-    public var delegate: GBLPingDelegate?
+    public weak var delegate: GBLPingDelegate?
     /// Assignable to an object conforming to `GBLPingDataDelegate` protocal
     /// delegated responsibility for recieving `GBLPingResult` objects captured from
     /// a running ping event.
@@ -21,7 +21,7 @@ public final class GBLPingService: NSObject, SimplePingDelegate  {
     /// - Note: Inherits from `GBLPingDelegate`, requires
     /// all functions for both protocols to be adopted.
     ///
-    public var dataDelegate: GBLPingDataDelegate?
+    public weak var dataDelegate: GBLPingDataDelegate?
     // Class Variables & Types
     /// The SimplePing client
     internal var pinger: SimplePing?
