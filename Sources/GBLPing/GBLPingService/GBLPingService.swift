@@ -6,7 +6,7 @@
 //  Copyright © 2019 GigabiteLabs. All rights reserved.
 //
 import Foundation
-import SimplePing
+import GBLPingLib
 
 /// A class representation of GBLPing as an instantiatable service.
 public final class GBLPingService: NSObject, SimplePingDelegate  {

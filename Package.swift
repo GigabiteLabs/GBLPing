@@ -15,21 +15,10 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "MacFinder",
+            name: "GBLPingLib",
             dependencies: [],
             path: "Sources",
-            sources: ["MacFinder"],
-            cSettings: [
-                .headerSearchPath("Sources/MacFinder/Include")
-            ]
-        ),
-        .target(
-            name: "SimplePing",
-            dependencies: [],
-            path: "Sources",
-            sources: [
-                "SimplePing"
-            ],
+            sources: ["SimplePing", "MacFinder"],
             cSettings: [
                 .headerSearchPath("Sources")
             ]
@@ -37,14 +26,7 @@ let package = Package(
         .target(
             name: "GBLPing",
             dependencies: [
-                "MacFinder",
-                "SimplePing"
-            ],
-            exclude: [
-                "ObjC/"
-            ],
-            cSettings: [
-                .headerSearchPath("ObjC/Include")
+                "GBLPingLib"
             ]
         ),
         .testTarget(

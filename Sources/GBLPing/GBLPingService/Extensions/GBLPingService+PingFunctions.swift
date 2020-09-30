@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GBLPingLib
 
 /// An extension for `GBLPingService` with internal
 /// controlling functions for ping events.

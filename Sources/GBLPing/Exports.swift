@@ -7,5 +7,5 @@
 
 import Foundation
 
-@_exported import SimplePing
-@_exported import MacFinder
+//@_exported import SimplePing
+//@_exported import MacFinder
