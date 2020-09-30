@@ -18,7 +18,7 @@ class GBLPingFrameworkTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func test_1_GBLPingDelegateClass(){
+    func test1GBLPingDelegateClass() {
         print("\n\n************ Testing GBLPingDelegate ************")
         becomeDelegate(selfRef: self)
         assertGBLDefaultConfig()
@@ -31,24 +31,22 @@ class GBLPingFrameworkTests: XCTestCase {
         wait(for: [exp], timeout: 10)
     }
     
-//    func test_2_GBLDataDelegate(){
-//        print("\n\n************ Testing GBLDataDelegate ************")
-//        // setup new test class
-//        let dataDelegate = GBLPingTestObject()
-//
-//        // assert delegate assigned
-//        XCTAssertNotNil(GBLPing.service.delegate, "delegate should not be nil, shoudl be automatically claimed by test class")
-//
-//        // test with above class
-//        XCTAssert(GBLPing.service.lastPingEventType == .pingReadyToStart, "event type should indicate that event has already occured")
-//        XCTAssert(dataDelegate.lastPingDescription == "", "description should be empty string before a ping is run")
-//
-//        // ping
-//        GBLPing.service.pingHostname(hostname: "developer.gigabitelabs.com")
-//
-//        // re-run, measuring performance
-//        self.measure {
-//            test_2_GBLDataDelegate()
-//        }
-//    }
+    func test2GBLDataDelegate() {
+        print("\n\n************ Testing GBLDataDelegate ************")
+        let exp = expectation(description: "a single ping should succeed")
+        executeAsync(id: #function, exp: exp)
+        
+        // ping
+        GBLPing.service.pingHostname(hostname: "ns.cloudflare.com")
+        wait(for: [exp], timeout: 10)
+    }
+    
+    func testPerformance() throws {
+        self.measure {
+            resetGBLPingConfig()
+            Test.ctrl.reset()
+            test1GBLPingDelegateClass()
+            test2GBLDataDelegate()
+        }
+    }
 }

@@ -24,8 +24,12 @@ extension XCTest: GBLPingDelegate, GBLPingDataDelegate{
         XCTAssertNotNil(GBLPing.service.delegate, "delegate should not be nil")
         XCTAssertNotNil(GBLPing.service.dataDelegate, "dataDelegate should not be nil")
         // test with above class
-        XCTAssert(GBLPing.service.lastPingEventType == .pingReadyToStart, "event type should be default value")
         XCTAssertNil(GBLPing.service.currentPingResult, "description should be empty string before a ping is run")
+    }
+    func resetGBLPingConfig() {
+        GBLPing.service.delegate = nil
+        GBLPing.service.dataDelegate = nil
+        GBLPing.service.currentPingResult = nil
     }
     /// Asserts that the Test.controller instance
     /// is configured with the initial / default values
@@ -41,9 +45,8 @@ extension XCTest: GBLPingDelegate, GBLPingDataDelegate{
         XCTAssertNotNil(Test.ctrl.pingResults, "pingResults cannot be nil if they were successful")
         XCTAssertNil(Test.ctrl.lastPingError, "lastPingError should be nil")
     }
-    
     func executeAsync(id: String, exp: XCTestExpectation) {
-        let operation = AsyncOperation { id }        
+        let operation = AsyncOperation { id }
         operation.perform { value in
             exp.fulfill()
         }
