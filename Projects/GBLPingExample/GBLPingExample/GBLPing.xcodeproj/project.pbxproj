@@ -43,9 +43,9 @@
 		3784B9A625240C2D0082447A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		3784B9A825240C2D0082447A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		37992048222891D100DFC25D /* GBLPingExampleExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBLPingExampleExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3799204B222891D100DFC25D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
-		3799204D222891D100DFC25D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
-		37992052222891D300DFC25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		3799204B222891D100DFC25D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3799204D222891D100DFC25D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37992052222891D300DFC25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37992057222891D300DFC25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37992067222891D300DFC25D /* GBLPingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBLPingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799206B222891D300DFC25D /* GBLPingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GBLPingUITests.swift; path = Sources/GBLPingUITests.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 				37992052222891D300DFC25D /* Assets.xcassets */,
 				37F7A5312445B1770089ACEC /* SupportFIles */,
 			);
-			path = GBLPingExample;
+			name = GBLPingExample;
 			sourceTree = "<group>";
 		};
 		3799206A222891D300DFC25D /* GBLPingUITests */ = {
@@ -130,7 +130,7 @@
 				379920B62228A55600DFC25D /* GBLPingExample-Bridging-Header.h */,
 			);
 			name = SupportFIles;
-			path = ../SupportFIles;
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

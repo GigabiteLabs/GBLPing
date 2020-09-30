@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pingLog: UITextView!
     @IBOutlet weak var pingButton: UIButton!
     @IBAction func pingButtonAction(_ sender: Any) {
-        Ping.service.pingHostname(hostname: "gigabitelabs.com", maxPings: 10)
+        Ping.service.pingHostname(hostname: "ns.cloudflare.com", maxPings: 10)
     }
     @IBOutlet weak var stopButton: UIButton!
     @IBAction func stopButtonAction(_ sender: Any) {
