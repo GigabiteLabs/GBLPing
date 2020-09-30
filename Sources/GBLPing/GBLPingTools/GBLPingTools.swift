@@ -13,11 +13,11 @@ public enum GBLPingToolsNetworkInterface: String {
     case wifi = "en0"
 }
 
-public struct GBLPingTools {
+public class GBLPingTools {
     // initializable only by the
     // framework
     internal init() { }
-    
+    // TODO: Documentation
     public func networkInfoFor(localInterface: GBLPingToolsNetworkInterface) ->
     (
             address: String,
@@ -70,7 +70,7 @@ public struct GBLPingTools {
             return nil
         }
     }
-    
+    // TODO: Documentation
     public var localIPInterfaceNames: [String]? {
         var localInterfaces: [String] = []
         // Get list of all interfaces on the local machine:
