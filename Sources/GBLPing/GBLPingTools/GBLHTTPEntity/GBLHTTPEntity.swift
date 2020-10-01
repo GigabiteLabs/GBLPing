@@ -48,7 +48,6 @@ public class GBLHTTPEntity {
                  .pingMaximumReached:
                 status(false)
             default:
-                print("\n\nERROR: UNHANDLED case sent to completion\n\n")
                 status(false)
             }
         }

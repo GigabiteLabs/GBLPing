@@ -1,4 +1,4 @@
 *.DS_Store
-.swiftpm/xcode/
-.build/
 xcuserdata/
+.build/
+

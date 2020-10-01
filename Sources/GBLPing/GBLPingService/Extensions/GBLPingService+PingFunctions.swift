@@ -20,7 +20,10 @@ extension GBLPingService {
     ///     service events will be targeted.
     ///
     internal func startPinging(_ hostname: String) {
+        #if DEBUG
         print("Internal: \(#function)")
+        #endif
+
         resetPingEventVars()
         // setup / reset the result type for current service operation
         lastPingEventType = .pingReadyToStart
@@ -43,7 +46,10 @@ extension GBLPingService {
     /// notification, service deallocation and
     /// variable resets.
     public func stop() {
+        #if DEBUG
         print("Internal: \(#function)")
+        #endif
+
         // stop the timer
         stopTimer()
         // stop the pinger
@@ -79,7 +85,10 @@ extension GBLPingService {
     /// Stops the ping service with after
     /// a configured timer expired.
     @objc internal func timeExpired() {
+        #if DEBUG
         print("Internal: \(#function)")
+        #endif
+
         // notify the delegate
         delegate?.gblPingEvent(.pingTimeExpired)
         // stop the service
@@ -90,12 +99,18 @@ extension GBLPingService {
 fileprivate extension GBLPingService {
     /// Sets all services instances nil.
     func deallocateFrameworks() {
+        #if DEBUG
         print("Internal: \(#function)")
+        #endif
+
         cache.pinger = nil
     }
     /// Resets all config & state variables related to a ping event.
     func resetPingEventVars() {
+        #if DEBUG
         print("Internal: \(#function)")
+        #endif
+
         cache.stopScheduled = false
         cache.timeLimit = nil
         cache.pingAttempts = nil
