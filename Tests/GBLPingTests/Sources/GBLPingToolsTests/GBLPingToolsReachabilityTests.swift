@@ -22,7 +22,7 @@ class GBLPingToolsReachabilityTests: XCTestCase {
     func testReachability() {
         let exp = expectation(description: "the internet should be reachable")
 
-        GBLPing.tools.internetReachable { (reachable) in
+        GBLPing.tools.internet.reachable { (reachable) in
             print("internet reachable: \(reachable)")
             if reachable {
                 XCTAssertTrue(reachable)

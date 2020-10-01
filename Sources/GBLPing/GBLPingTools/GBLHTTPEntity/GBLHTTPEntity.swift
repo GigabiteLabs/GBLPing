@@ -1,25 +1,38 @@
 // File.swift
 //
-// Created by GigabiteLabs on 9/30/20
+// Created by GigabiteLabs on 10/1/20
 // Swift Version: 5.0
 // Copyright © 2020 GigabiteLabs. All rights reserved.
 //
 
 import Foundation
 
-extension GBLPingTools {
-    // TODO: add reachability tools
-    public func internetReachable(reachable: @escaping (Bool) -> Void) {
+public class GBLHTTPEntity {
+    /// Checks if an internet connection is active in general
+    /// or if a particualr host is reachable.
+    ///
+    /// - Returns:
+    ///     - `(Bool) -> Void`, a closure with a boolean value indicating if the internet is reachable
+    ///
+    func reachable(hostName: String?, status: @escaping (Bool) -> Void) {
+        // init a new ping service
         let pingSvc = GBLPing.serviceInstance
+        // dermine which hostname to use
+        var host = ""
+        if let hostName = hostName {
+            host = hostName
+        } else {
+            host = pingSvc.cache.defaultPingHost
+        }
+        // start pinging
         pingSvc.pingHostname(
-            hostname: pingSvc.cache.defaultPingHost,
+            hostname: host,
             maxPings: pingSvc.cache.defaultMaxPings) { ( event, result) in
-
             // check if result is nil, if so
             // an error can be assumed and false
             // is passed back through the completion handler
             if result == nil {
-                reachable(false)
+                status(false)
                 return
             }
             // If result was not nil
@@ -27,20 +40,17 @@ extension GBLPingTools {
             // what type of event happend
             switch event {
             case .responsePacketRecieved:
-                reachable(true)
+                status(true)
             case .unexpectedEvent,
                  .unexpectedPacketRecieved,
                  .pingFailure,
                  .maxPingsReached,
                  .pingMaximumReached:
-                reachable(false)
+                status(false)
             default:
                 print("\n\nERROR: UNHANDLED case sent to completion\n\n")
-                reachable(false)
+                status(false)
             }
         }
-    }
-    public static func hostReachable(_ hostname: String) {
-
     }
 }
