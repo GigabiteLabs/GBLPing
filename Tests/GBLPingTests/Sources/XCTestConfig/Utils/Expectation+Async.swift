@@ -12,7 +12,7 @@ import XCTest
 public struct AsyncOperation<Value> {
     let queue: DispatchQueue = .main
     let closure: () -> Value
-    
+
     func perform(then handler: @escaping (Value) -> Void) {
         queue.async {
             let value = self.closure()

@@ -26,7 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "GBLPing"
+            BuildableName = "GBLPing"
+            BlueprintName = "GBLPing"
+            ReferencedContainer = "container:../..">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,6 +46,26 @@
                BlueprintIdentifier = "37F7A5402445B9220089ACEC"
                BuildableName = "GBLPingFrameworkTests.xctest"
                BlueprintName = "GBLPingFrameworkTests"
+               ReferencedContainer = "container:GBLPing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "372DBC6A2525674400418411"
+               BuildableName = "GBLPingTests.xctest"
+               BlueprintName = "GBLPingTests"
+               ReferencedContainer = "container:GBLPing.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "372DBC592525666F00418411"
+               BuildableName = "GBLPingExampleTests.xctest"
+               BlueprintName = "GBLPingExampleTests"
                ReferencedContainer = "container:GBLPing.xcodeproj">
             </BuildableReference>
          </TestableReference>

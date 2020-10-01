@@ -25,7 +25,7 @@ public class GBLPingTools {
             interface: GBLPingToolsNetworkInterface
     )? {
         // Get list of all interfaces on the local machine:
-        var ifaddr : UnsafeMutablePointer<ifaddrs>?
+        var ifaddr: UnsafeMutablePointer<ifaddrs>?
         guard getifaddrs(&ifaddr) == 0 else { return nil }
         guard let firstAddr = ifaddr else { return nil }
         // setup return tuple
@@ -74,7 +74,7 @@ public class GBLPingTools {
     public var localIPInterfaceNames: [String]? {
         var localInterfaces: [String] = []
         // Get list of all interfaces on the local machine:
-        var ifaddr : UnsafeMutablePointer<ifaddrs>?
+        var ifaddr: UnsafeMutablePointer<ifaddrs>?
         guard getifaddrs(&ifaddr) == 0 else { return nil }
         guard let firstAddr = ifaddr else { return nil }
         // For each interface ...

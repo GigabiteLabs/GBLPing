@@ -7,4 +7,4 @@
 
 import Foundation
 
-public typealias SimplePingClientCallback = (Bool)->()
+public typealias SimplePingClientCallback = (Bool)->Void

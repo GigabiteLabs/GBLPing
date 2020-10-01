@@ -26,9 +26,9 @@ extension GBLPingService {
         // setup ip configuration
         switch ipVersion {
         case .ipv4:
-            pinger?.addressStyle = .icmPv4
+            cache.pinger?.addressStyle = .icmPv4
         case .ipv6:
-            pinger?.addressStyle = .icmPv6
+            cache.pinger?.addressStyle = .icmPv6
         }
         // start service
         startPinging(hostname)
@@ -51,7 +51,7 @@ extension GBLPingService {
             delegate?.gblPingError(.maxPingsInvalid)
         }
         // set max ping configuration on service
-        self.maxPings = maxPings
+        self.cache.maxPings = maxPings
         // pass-through to basic forcing func
         pingHostnameForcing(ipVersion: ipVersion, hostname: hostname)
     }
@@ -73,7 +73,7 @@ extension GBLPingService {
             delegate?.gblPingError(.timeLimitInvalid)
         }
         // set max ping configuration on service
-        self.timeLimit = seconds
+        self.cache.timeLimit = seconds
         // pass-through to basic forcing func
         pingHostnameForcing(ipVersion: ipVersion, hostname: hostname)
     }

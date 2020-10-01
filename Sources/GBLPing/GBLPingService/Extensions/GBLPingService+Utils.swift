@@ -13,7 +13,7 @@ extension GBLPingService {
     /// - returns: A string representation of that address.
     func displayAddressForAddress(address: NSData) -> String {
         var hostStr = [Int8](repeating: 0, count: Int(NI_MAXHOST))
-        
+
         let success = getnameinfo(
             address.bytes.assumingMemoryBound(to: sockaddr.self),
             socklen_t(address.length),
@@ -31,7 +31,7 @@ extension GBLPingService {
         }
         return result
     }
-    
+
     /// Returns a short error string for the supplied error.
     ///
     /// - parameter error: The error to render.

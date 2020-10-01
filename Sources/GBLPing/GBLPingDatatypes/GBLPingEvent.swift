@@ -15,11 +15,11 @@ import Foundation
     case pingDidStart
     case pingDidStop
     case pingMaximumReached
-    
+
     // Expirations
     case pingTimeExpired
     case maxPingsReached
-    
+
     // Outcomes
     case responsePacketRecieved
     case packetSent

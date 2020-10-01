@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# setup a var for the target version
+IOS_VERSION="14.0"
+
+# check if a version was passed 
+# as an argument, if not, leave defalut
+if [ "$1" -ne "" ]; then
+  IOS_VERSION=$1
+fi
+
+# build
+swift build -v -Xswiftc "-sdk" \
+  -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" \
+  -Xswiftc "-target" \
+  -Xswiftc "x86_64-apple-ios$IOS_VERSION-simulator"

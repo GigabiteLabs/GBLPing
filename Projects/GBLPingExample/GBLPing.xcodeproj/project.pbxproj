@@ -13,18 +13,7 @@
 		3799204C222891D100DFC25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799204B222891D100DFC25D /* AppDelegate.swift */; };
 		3799204E222891D100DFC25D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799204D222891D100DFC25D /* ViewController.swift */; };
 		37992053222891D300DFC25D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37992052222891D300DFC25D /* Assets.xcassets */; };
-		3799206C222891D300DFC25D /* GBLPingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799206B222891D300DFC25D /* GBLPingUITests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		37992068222891D300DFC25D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37992040222891D100DFC25D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 37992047222891D100DFC25D;
-			remoteInfo = Octopoll;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		37F7A5532445B9230089ACEC /* Embed Frameworks */ = {
@@ -47,9 +36,6 @@
 		3799204D222891D100DFC25D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37992052222891D300DFC25D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37992057222891D300DFC25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37992067222891D300DFC25D /* GBLPingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBLPingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3799206B222891D300DFC25D /* GBLPingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GBLPingUITests.swift; path = Sources/GBLPingUITests.swift; sourceTree = "<group>"; };
-		3799206D222891D300DFC25D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379920B62228A55600DFC25D /* GBLPingExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBLPingExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		37F7A5332445B2110089ACEC /* GBLPingExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = GBLPingExample.entitlements; path = ../SupportFiles/GBLPingExample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,13 +46,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3784B9C025240FD00082447A /* GBLPing in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		37992064222891D300DFC25D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				3799204A222891D100DFC25D /* GBLPingExample */,
-				3799206A222891D300DFC25D /* GBLPingUITests */,
 				37992049222891D100DFC25D /* Products */,
 				3784B99125240A8C0082447A /* Frameworks */,
 			);
@@ -94,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				37992048222891D100DFC25D /* GBLPingExampleExample.app */,
-				37992067222891D300DFC25D /* GBLPingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,16 +87,6 @@
 				37F7A5312445B1770089ACEC /* SupportFIles */,
 			);
 			name = GBLPingExample;
-			sourceTree = "<group>";
-		};
-		3799206A222891D300DFC25D /* GBLPingUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3799206B222891D300DFC25D /* GBLPingUITests.swift */,
-				3799206D222891D300DFC25D /* Info.plist */,
-			);
-			name = GBLPingUITests;
-			path = ../GBLPingUITests;
 			sourceTree = "<group>";
 		};
 		37F7A5312445B1770089ACEC /* SupportFIles */ = {
@@ -157,31 +124,13 @@
 			productReference = 37992048222891D100DFC25D /* GBLPingExampleExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		37992066222891D300DFC25D /* GBLPingUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 37992076222891D300DFC25D /* Build configuration list for PBXNativeTarget "GBLPingUITests" */;
-			buildPhases = (
-				37992063222891D300DFC25D /* Sources */,
-				37992064222891D300DFC25D /* Frameworks */,
-				37992065222891D300DFC25D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				37992069222891D300DFC25D /* PBXTargetDependency */,
-			);
-			name = GBLPingUITests;
-			productName = OctopollUITests;
-			productReference = 37992067222891D300DFC25D /* GBLPingUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		37992040222891D100DFC25D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Dan;
 				TargetAttributes = {
@@ -193,10 +142,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					37992066222891D300DFC25D = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 37992047222891D100DFC25D;
 					};
 				};
 			};
@@ -214,7 +159,6 @@
 			projectRoot = "";
 			targets = (
 				37992047222891D100DFC25D /* GBLPingExample */,
-				37992066222891D300DFC25D /* GBLPingUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,13 +174,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37992065222891D300DFC25D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -249,23 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37992063222891D300DFC25D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3799206C222891D300DFC25D /* GBLPingUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		37992069222891D300DFC25D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 37992047222891D100DFC25D /* GBLPingExample */;
-			targetProxy = 37992068222891D300DFC25D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3784B9A525240C2D0082447A /* LaunchScreen.storyboard */ = {
@@ -456,50 +377,6 @@
 			};
 			name = Release;
 		};
-		37992077222891D300DFC25D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/SupportFIles/GBLPingExample.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6F9773F85D;
-				INFOPLIST_FILE = GBLPingUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.GBLPingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GBLPingExample;
-			};
-			name = Debug;
-		};
-		37992078222891D300DFC25D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/SupportFIles/GBLPingExample.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6F9773F85D;
-				INFOPLIST_FILE = GBLPingUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.GBLPingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GBLPingExample;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -517,15 +394,6 @@
 			buildConfigurations = (
 				37992071222891D300DFC25D /* Debug */,
 				37992072222891D300DFC25D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		37992076222891D300DFC25D /* Build configuration list for PBXNativeTarget "GBLPingUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				37992077222891D300DFC25D /* Debug */,
-				37992078222891D300DFC25D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

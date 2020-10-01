@@ -9,5 +9,5 @@ import Foundation
 /// Conforming objects will recieve service event data, but will also
 /// maintain a local refernce to the GBLPing shared instance
 public protocol GBLPingServiceProtocol: GBLPingDelegate {
-    
+
 }

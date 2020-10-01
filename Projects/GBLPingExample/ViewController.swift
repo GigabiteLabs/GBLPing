@@ -16,20 +16,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var pingLog: UITextView!
     @IBOutlet weak var pingButton: UIButton!
     @IBAction func pingButtonAction(_ sender: Any) {
-        Ping.service.pingHostname(hostname: "ns.cloudflare.com", maxPings: 10)
+        Ping.service.pingHostname(hostname: "ns.cloudflare.com", maxPings: 10, nil)
     }
     @IBOutlet weak var stopButton: UIButton!
     @IBAction func stopButtonAction(_ sender: Any) {
         Ping.service.stop()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         Ping.service.delegate = self
         Ping.service.dataDelegate = self
     }
-    
+
     func updateResultLabel(with result: String) {
         let updateStr = "\n\(result)"
         if var currentResultText = pingLog.text {
@@ -64,17 +64,17 @@ extension ViewController: GBLPingDelegate, GBLPingDataDelegate {
         print("ping event: \(event.description)")
         updateResultLabel(with: event.description)
     }
-    
+
     func gblPingUnexpected(event: GBLPingUnexpectedEvent) {
         print("ping unexpected event: \(event.description)")
         updateResultLabel(with: "unexpected event: \(event.description)")
     }
-    
+
     func gblPingResult(result: GBLPingResult) {
         print("ping result: \(result.toJSONString())")
         updateResultLabel(with: result.toJSONString(options: .prettyPrinted))
     }
-    
+
     func gblPingError(_ error: GBLPingUnexpectedEvent) {
         print("ping error: \(error.description)")
         updateResultLabel(with: "error: \(error.description)")
@@ -84,9 +84,9 @@ extension ViewController: GBLPingDelegate, GBLPingDataDelegate {
 extension ViewController: UITextViewDelegate {
     // TODO add input handing on demo project
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
+
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        
+
     }
 }

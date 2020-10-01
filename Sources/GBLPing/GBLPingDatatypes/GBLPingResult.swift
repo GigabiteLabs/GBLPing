@@ -77,7 +77,7 @@ import Foundation
         try container.encode(sequenceID, forKey: .sequenceID)
         try container.encode(bytes, forKey: .bytes)
         try container.encode(pingSequenceNumber, forKey: .pingSequenceNumber)
-        try container.encode(event.rawValue , forKey: .event)
+        try container.encode(event.rawValue, forKey: .event)
         try container.encode(startTime, forKey: .startTime)
         try container.encode(endTime, forKey: .endTime)
         try container.encode(targetHost, forKey: .targetHost)
@@ -92,7 +92,7 @@ import Foundation
         try container.encodeIfPresent(failureEventTime, forKey: .failureEventTime)
         try container.encode(rawPacket, forKey: .rawPacket)
         try container.encode(resultMessage, forKey: .resultMessage)
-        
+
     }
     /// Codable decode function
     public required init(from decoder: Decoder) throws {

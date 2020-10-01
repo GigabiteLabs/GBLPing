@@ -10,36 +10,36 @@ import GBLPingLib
 
 /// An extension of `GBLPingService`for ping operation lifecycle events w/ helper functions
 public extension GBLPingService {
-    
+
     func pingerWillStart() {
         // update event type
         lastPingEventType = .pingWillStart
         // add new result
         let newResult = GBLPingResult()
-        if let currentSequenceID = currentSequenceID {
+        if let currentSequenceID = cache.currentSequenceID {
             newResult.sequenceID = currentSequenceID
         }
         addNewResult(result: newResult)
     }
-    
+
     func pingerDidStop() {
         lastPingEventType = .pingDidStop
     }
-    
+
     func simplePing(_ pinger: SimplePing, didStartWithAddress address: Data) {
         // start the timer if exits
-        if let timeLimit = timeLimit {
+        if let timeLimit = cache.timeLimit {
             perform(#selector(timeExpired), with: nil, afterDelay: TimeInterval(timeLimit))
         }
         // update event
         lastPingEventType = .pingDidStart
-        
+
         // send the ping!
         pinger.send(with: nil)
-        
+
         // translate the address from Data to String
         let translatedAddress = "\(displayAddressForAddress(address: address as NSData))"
-        
+
         // capture IP address for ipv forcing
         let pingResult = latestResult()
         if pingResult.ipv4Forced == true {
@@ -53,7 +53,7 @@ public extension GBLPingService {
         pingResult.resultMessage = "ping service started pinging recipient at IP address \(pingResult.targetHostIP)"
         updatePingResults(result: pingResult)
     }
-    
+
     func simplePing(_ pinger: SimplePing, didSendPacket packet: Data, sequenceNumber: UInt16) {
         // capture start time & packet sent
         let pingResult = latestResult()
@@ -61,20 +61,20 @@ public extension GBLPingService {
         pingResult.rawPacket = packet
         pingResult.pingSequenceNumber = Int(sequenceNumber)
         pingResult.bytes = packet.count
-        
+
         // gather data and log for debugging
         let msg = "ping sequence#\(sequenceNumber) was successfully sent"
         pingResult.resultMessage = msg
-        
+
         // update event
         lastPingEventType = .packetSent
         updatePingResults(result: pingResult)
-        
+
         // check if we've reached max
         checkIfMaxPingsReached()
     }
-    
-    func simplePing(_ pinger: SimplePing, didFailToSendPacket packet: Data, sequenceNumber: UInt16, error: Error, completion: @escaping (Bool)-> Void) {
+
+    func simplePing(_ pinger: SimplePing, didFailToSendPacket packet: Data, sequenceNumber: UInt16, error: Error, completion: @escaping (Bool) -> Void) {
         let pingResult = latestResult()
         // gather data and log for debugging
         let shortError = self.shortErrorFromError(error: error as NSError)
@@ -82,7 +82,7 @@ public extension GBLPingService {
         pingResult.resultMessage = msg
         pingResult.failureEventTime = Int(NSDate().timeIntervalSince1970)
         updatePingResults(result: pingResult)
-        
+
         // update event
         lastPingEventType = .pingFailure
         // Check if it should stop
@@ -110,7 +110,7 @@ public extension GBLPingService {
         pingResult.rawPacket = packet
         pingResult.pingSequenceNumber = Int(sequenceNumber)
         pingResult.bytes = packet.count
-        
+
         // setup message string
         pingResult.resultMessage = "ping sequence #\(sequenceNumber) received, size: \(packet.count)"
         // update event
@@ -130,11 +130,11 @@ public extension GBLPingService {
         pingResult.unexpectedEvent = .packetDiscrepancy
         pingResult.rawPacket = packet
         pingResult.bytes = packet.count
-        
+
         // setup msg
         let msg = "unexpected response recieved. packet count: \(packet.count)"
         pingResult.resultMessage = msg
-        
+
         // update event
         lastPingEventType = .unexpectedPacketRecieved
         // notify delegate

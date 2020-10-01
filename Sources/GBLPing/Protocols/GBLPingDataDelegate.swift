@@ -5,8 +5,6 @@
 // Copyright © 2020 GigabiteLabs. All rights reserved.
 //
 
-
-
 import Foundation
 
 public protocol GBLPingDataDelegate: class {

@@ -9,10 +9,38 @@ import Foundation
 
 extension GBLPingTools {
     // TODO: add reachability tools
-    public var internetReachable: Bool {
+    public func internetReachable(reachable: @escaping (Bool) -> Void) {
+        let pingSvc = GBLPing.serviceInstance
+        pingSvc.pingHostname(
+            hostname: pingSvc.cache.defaultPingHost,
+            maxPings: pingSvc.cache.defaultMaxPings) { ( event, result) in
 
+            // check if result is nil, if so
+            // an error can be assumed and false
+            // is passed back through the completion handler
+            if result == nil {
+                reachable(false)
+                return
+            }
+            // If result was not nil
+            // we handle completion by
+            // what type of event happend
+            switch event {
+            case .responsePacketRecieved:
+                reachable(true)
+            case .unexpectedEvent,
+                 .unexpectedPacketRecieved,
+                 .pingFailure,
+                 .maxPingsReached,
+                 .pingMaximumReached:
+                reachable(false)
+            default:
+                print("\n\nERROR: UNHANDLED case sent to completion\n\n")
+                reachable(false)
+            }
+        }
     }
-    public func hostReachable(_ hostname: String) {
-        
+    public static func hostReachable(_ hostname: String) {
+
     }
 }

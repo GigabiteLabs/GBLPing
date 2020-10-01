@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension GBLPingService {
 
     // TODO: Re-design and refactor this entire caching process
@@ -52,7 +51,7 @@ extension GBLPingService {
     internal func resetPingResult() {
         currentPingResult = GBLPingResult()
     }
-    
+
     /// Adds a new result to the cached set of ping results.
     internal func updatePingResults(result: GBLPingResult) {
         currentPingResult = result

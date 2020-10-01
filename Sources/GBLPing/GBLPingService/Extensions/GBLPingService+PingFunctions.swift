@@ -19,21 +19,21 @@ extension GBLPingService {
     ///     - host: the string hostname at which the next ping
     ///     service events will be targeted.
     ///
-    internal func startPinging(_ hostname: String){
+    internal func startPinging(_ hostname: String) {
         print("Internal: \(#function)")
         resetPingEventVars()
         // setup / reset the result type for current service operation
         lastPingEventType = .pingReadyToStart
         // setup new squence ID
-        self.currentSequenceID = UUID().uuidString
+        self.cache.currentSequenceID = UUID().uuidString
         // Setup simple ping & start
-        pinger = SimplePing(hostName: hostname)
+        cache.pinger = SimplePing(hostName: hostname)
         // set self as delegate
-        pinger?.delegate = self
+        cache.pinger?.delegate = self
         // notify delegate that service will begin
         pingerWillStart()
         // start
-        pinger?.start()
+        cache.pinger?.start()
         // setup repeat timer
         setupPingTimer()
     }
@@ -47,7 +47,7 @@ extension GBLPingService {
         // stop the timer
         stopTimer()
         // stop the pinger
-        pinger?.stop()
+        cache.pinger?.stop()
         // notify the delegate
         pingerDidStop()
         // deallocated services
@@ -57,24 +57,24 @@ extension GBLPingService {
         resetPingEventVars()
     }
     func setupPingTimer() {
-        sendTimer = Timer.scheduledTimer(timeInterval: 1.0,
+        cache.sendTimer = Timer.scheduledTimer(timeInterval: 1.0,
                                          target: self,
                                          selector: #selector(sendPing),
                                          userInfo: nil,
                                          repeats: true)
-        
+
     }
     func stopTimer() {
-        sendTimer?.invalidate()
-        sendTimer = nil
+        cache.sendTimer?.invalidate()
+        cache.sendTimer = nil
     }
     /// Sends a ping.
     ///
     /// Called to send a ping, both directly (as soon as the SimplePing object starts up) and
     /// via a timer (to continue sending pings periodically).
-    
+
     @objc internal func sendPing() {
-        self.pinger!.send(with: nil)
+        self.cache.pinger?.send(with: nil)
     }
     /// Stops the ping service with after
     /// a configured timer expired.
@@ -91,13 +91,13 @@ fileprivate extension GBLPingService {
     /// Sets all services instances nil.
     func deallocateFrameworks() {
         print("Internal: \(#function)")
-        pinger = nil
+        cache.pinger = nil
     }
     /// Resets all config & state variables related to a ping event.
     func resetPingEventVars() {
         print("Internal: \(#function)")
-        stopScheduled = false
-        timeLimit = nil
-        pingAttempts = nil
+        cache.stopScheduled = false
+        cache.timeLimit = nil
+        cache.pingAttempts = nil
     }
 }

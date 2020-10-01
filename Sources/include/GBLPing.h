@@ -4,6 +4,7 @@
 // Swift Version: 5.0
 // Copyright © 2020 GigabiteLabs. All rights reserved.
 //
+
 #import "SimplePing.h"
 #import "MacFinder.h"
 #include <ifaddrs.h>

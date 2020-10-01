@@ -4,12 +4,12 @@ import PackageDescription
 let package = Package(
     name: "GBLPing",
     platforms: [
-        .macOS(.v10_15), .iOS(.v11),
+        .iOS(.v11)
     ],
     products: [
         .library(
             name: "GBLPing",
-            targets: ["GBLPing"]),
+            targets: ["GBLPing"])
     ],
     dependencies: [
     ],
@@ -18,9 +18,9 @@ let package = Package(
             name: "GBLPingLib",
             dependencies: [],
             path: "Sources",
-            sources: ["SimplePing", "MacFinder"],
+            sources: ["include/SimplePing", "include/MacFinder"],
             cSettings: [
-                .headerSearchPath("Sources")
+                .headerSearchPath("Sources/include")
             ]
         ),
         .target(
@@ -32,6 +32,6 @@ let package = Package(
         .testTarget(
             name: "GBLPingTests",
             dependencies: ["GBLPing"]
-        ),
+        )
     ]
 )
