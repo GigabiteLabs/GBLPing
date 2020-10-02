@@ -6,10 +6,14 @@
 //  Copyright © 2019 Dan. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
+#endif
 import GBLPing
 
+#if canImport(UIKit)
 import UIKit
+#endif
 import GBLPing
 
 class ViewController: UIViewController {

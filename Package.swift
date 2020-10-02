@@ -18,6 +18,9 @@ let package = Package(
             name: "GBLPingLib",
             dependencies: [],
             path: "Sources",
+            exclude: [
+                "GBLPing"
+            ],
             sources: ["include/SimplePing", "include/MacFinder"],
             cSettings: [
                 .headerSearchPath("Sources/include")
