@@ -6,7 +6,9 @@
     A view controller for testing SimplePing on iOS.
  */
 
+#if canImport(UIKit)
 import UIKit
+#endif
 
 class MainViewController: UITableViewController, SimplePingDelegate {
 
