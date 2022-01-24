@@ -2,7 +2,7 @@
 
 Splendidly detailed network and datalink-layer operations, tests, and utilities for Swift apps.
 
-####What is GBLPing?
+###What is GBLPing?
 
 A Powerful, lightweight, and super fast framework that makes the often-difficult task of getting detailed network and datalink-layer information from the devices running your application.
 
