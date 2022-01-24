@@ -32,12 +32,14 @@ class GBLPingServiceTests: XCTestCase {
         spy.resultExpectation?.expectedFulfillmentCount = maxAttempts
 
         print("spy resultExpectation.expectedFulfillmentCount: \(spy.resultExpectation?.expectedFulfillmentCount ?? 00)")
-
+            
         // start ping service
-        GBLPing.svc.pingHostname(hostname: Test.vars.defaultPingHost,
-                                     maxPings: maxAttempts) { (result) in
-            XCTAssertTrue(result)
+        GBLPing.svc.pingHostname(
+            hostname: Test.vars.defaultPingHost,
+            maxPings: maxAttempts) { (result) in
+                XCTAssertTrue(result)
         }
+        
         wait(for: [spy.resultExpectation!], timeout: 15)
 
         // test that the delgate
