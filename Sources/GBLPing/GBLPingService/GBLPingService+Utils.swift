@@ -31,7 +31,6 @@ extension GBLPingService {
         }
         return result
     }
-
     /// Returns a short error string for the supplied error.
     ///
     /// - parameter error: The error to render.

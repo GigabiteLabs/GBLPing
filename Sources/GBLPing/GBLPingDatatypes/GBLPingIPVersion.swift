@@ -7,8 +7,12 @@
 
 import Foundation
 
-/// An enumeration of the IP versions that may be
-/// used during ping service configuration or usage.
+/// An enumeration of the IP versions that are
+/// supported for use during ping service
+/// configuration or usage.
 public enum GBLPingIPVersion {
-    case ipv4, ipv6
+    /// IP version 4
+    case ipv4
+    /// IP version 6
+    case ipv6
 }

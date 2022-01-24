@@ -11,26 +11,18 @@ internal extension GBLPingService {
     /// Handles internal checking if a maximum
     /// configured attempts has been reached
     func checkIfMaxPingsReached() {
-        #if DEBUG
-        print("Internal: \(#function)")
-        #endif
-
-        print("max pingconfig: \(cache.maxPings ?? 0)")
         // ensure a max was set, or just return
         guard let max = cache.maxPings else {
-            #if DEBUG
-            print("no max set")
-            #endif
             return
         }
         // get the current number of attempts
         let attempts = incrementAttempts()
-        #if DEBUG
-        print("number of attempts: \(attempts)")
-        #endif
         // compare and stop if we've reached the max
         if attempts == max {
+            // schedule service stoppage
             cache.stopScheduled = true
+            // update state
+            lastPingEventType = .pingMaximumReached
         }
     }
     /// Handles safe incrementation and retrieval of the number
@@ -51,7 +43,7 @@ internal extension GBLPingService {
             return 1
         }
     }
-
+    /// Checks if the ping service has been flagged to stop and stops it, if so.
     func checkIfStopScheduled() {
         // stop the service if scheduled
         if cache.stopScheduled {

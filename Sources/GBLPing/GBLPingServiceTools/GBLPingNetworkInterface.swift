@@ -1,4 +1,4 @@
-// File.swift
+// GBLPingNetworkInterface.swift
 //
 // Created by GigabiteLabs on 10/1/20
 // Swift Version: 5.0

@@ -41,7 +41,7 @@ class GBLPingTestSpyDelegate {
 }
 
 /// An extension for `GBLPing` protocol conformance.
-extension GBLPingTestSpyDelegate: GBLPingDelegate, GBLPingDataDelegate {
+extension GBLPingTestSpyDelegate: GBLPingDelegate, GBLPingEventDelegate {
     /// Handles events from `GBLPing` events.
     public func gblPingEvent(_ event: GBLPingEvent) {
         print("\n********** Spy: pingEvent Description: \(event.description) **********")
@@ -53,15 +53,6 @@ extension GBLPingTestSpyDelegate: GBLPingDelegate, GBLPingDataDelegate {
         pingEvents?.append(event)
         // fulfill the expectation
         eventExpectation?.fulfill()
-    }
-    /// Handles unexpected events from `GBLPing` events.
-    public func gblPingUnexpected(event: GBLPingUnexpectedEvent) {
-        print("\n********** Spy: unexpectedEventType Description: \(event.description) **********")
-        // cache the event
-        lastUnexpectedPingEvent = event
-
-        // fulfill the expectation
-        unexpectedEventExpectationt?.fulfill()
     }
     /// Handles errors from `GBLPing` events.
     public func gblPingError(_ error: GBLPingUnexpectedEvent) {
@@ -90,14 +81,14 @@ extension GBLPingTestSpyDelegate {
     /// Takes delegation responsibility for
     /// `GBLPing` protocols.
     func becomeGBLPingDelegate() {
-        Ping.service.delegate = self
-        Ping.service.dataDelegate = self
+        Ping.svc.delegate = self
+        Ping.svc.eventDelegate = self
         print("\n\nSpy took delegation of the GBLPing service\n\n")
     }
     /// Sets the `GBLPing` delegates to nil
     func revokeGBLPingDelegates() {
-        Ping.service.delegate = nil
-        Ping.service.dataDelegate = nil
+        Ping.svc.delegate = nil
+        Ping.svc.eventDelegate = nil
     }
     /// Resets all stored properties adnd vars to nil
     func reset() {

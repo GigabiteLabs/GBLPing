@@ -19,11 +19,10 @@ extension GBLPingService {
     /// continue indefinitely. In some cases, this could cause issues
     /// if not handled properly.
     ///
-    public func pingHostname(hostname: String, _ completion: (( GBLPingEvent,
-                                                                GBLPingResult?) -> Void)?) {
+    public func pingHostname(hostname: String, _ completion: ((Bool) -> Void)? = nil) {
         // reset for new operation
-        startPinging(hostname)
         cache.pingHostCompletion = completion
+        startPinging(hostname)
     }
     /// Pings a hostname stopping after a designated number
     /// of pings.
@@ -34,10 +33,9 @@ extension GBLPingService {
     ///     be limited to. The ping service stops automatically
     ///     when the number of ping events is reached.
     ///
-    public func pingHostname(hostname: String, maxPings: Int, _ completion: (( GBLPingEvent,
-                                                                               GBLPingResult?) -> Void)?) {
+    public func pingHostname(hostname: String, maxPings: Int, _ completion: ((Bool) -> Void)? = nil) {
         // set max configuration on instance
-        self.cache.maxPings = maxPings
+        cache.maxPings = maxPings
         // pass-through to hostname ping
         pingHostname(hostname: hostname, completion)
     }
@@ -50,10 +48,9 @@ extension GBLPingService {
     ///     event should be limited to. The ping service stops automatically
     ///     when the number of seconds elapses.
     ///
-    public func pingHostname(hostname: String, stopAfter seconds: Int, _ completion: (( GBLPingEvent,
-                                                                                        GBLPingResult?) -> Void)?) {
+    public func pingHostname(hostname: String, stopAfter seconds: Int, _ completion: ((Bool) -> Void)? = nil) {
         // set max configuration on instance
-        self.cache.timeLimit = seconds
+        cache.timeLimit = seconds
         // pass-through to hostname ping
         pingHostname(hostname: hostname, completion)
     }

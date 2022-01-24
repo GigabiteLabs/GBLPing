@@ -7,4 +7,7 @@
 
 import Foundation
 
+/// A typealias for convenient framework consumption.
+public typealias Ping = GBLPing
+/// A typealiias for `SimplePing` callback operations.
 public typealias SimplePingClientCallback = (Bool)->Void

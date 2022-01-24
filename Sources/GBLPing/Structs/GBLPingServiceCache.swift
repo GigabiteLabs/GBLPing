@@ -8,6 +8,7 @@
 import Foundation
 import GBLPingLib
 
+/// An object used for caching service-related values
 internal struct GBLPingServiceCache {
     /// The SimplePing client
     var pinger: SimplePing?
@@ -44,5 +45,8 @@ internal struct GBLPingServiceCache {
     var stopScheduled: Bool = false
     /// An optional holder var for storing a completion
     /// block when one is passed during a call to pingHostname().
-    var pingHostCompletion: ((GBLPingEvent, GBLPingResult?) -> Void)?
+    var pingHostCompletion: ((Bool) -> Void)?
+    /// An optional holder var for storing a completion
+    /// block when one is passed during a call to the reachability tool.
+    var reachabilityCompletion: ((Bool) -> Void)?
 }

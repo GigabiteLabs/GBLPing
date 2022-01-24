@@ -9,9 +9,9 @@ import Foundation
 
 /// Information, metrics, and data about a local device and it's
 /// network connected interfaces.
-public class GBLPingLocalDevice {
+public struct GBLPingLocalDevice {
     /// An array of pointees, pointing at local IP interfaces,
-    public var localIPInterfaces: [ifaddrs]? {
+    public var interfaces: [ifaddrs]? {
         var local: [ifaddrs] = []
         // Get list of all interfaces on the local device:
         var ifaddr: UnsafeMutablePointer<ifaddrs>?
@@ -24,9 +24,9 @@ public class GBLPingLocalDevice {
         return local
     }
     /// An array of Strings representing the names of all local IP interfaces.
-    public var localIPInterfaceNames: [String]? {
+    public var interfaceNames: [String]? {
         var localNames: [String] = []
-        if let localIfs = localIPInterfaces {
+        if let localIfs = interfaces {
             for interface in localIfs {
                 localNames.append(String(cString: interface.ifa_name))
             }
@@ -47,8 +47,8 @@ public class GBLPingLocalDevice {
             subnet: String,
             interface: GBLPingNetworkInterface
     )? {
-        guard let interfaceNames = localIPInterfaceNames else { return nil }
-        guard let interfaces = localIPInterfaces else { return nil }
+        guard let interfaceNames = interfaceNames else { return nil }
+        guard let interfaces = interfaces else { return nil }
         
         var returnTuple: ( address: String?, subnet: String?, interface: GBLPingNetworkInterface ) =
             ( address: nil, subnet: nil, interface: localInterface )
@@ -63,7 +63,7 @@ public class GBLPingLocalDevice {
                                 &addr, socklen_t(addr.count),
                                 nil, socklen_t(0), NI_NUMERICHOST)
                     returnTuple.address = String(cString: addr)
-                    
+                    // TODO: finish implementation and testing
 //                    let net = interface.ifa_netmask.pointee
 //                    var subnetM = [CChar](repeating: 0, count: Int(NI_MAXHOST))
 //                    getnameinfo(interface.ifa_netmask, socklen_t(net.sa_len),

@@ -15,14 +15,14 @@ public extension XCTestCase {
     /// e.g. no tests have run yet
     func assertGBLDefaultConfig() throws {
         // assert delegate assigned
-        XCTAssertNotNil(GBLPing.service.delegate, "delegate should not be nil")
-        XCTAssertNotNil(GBLPing.service.dataDelegate, "dataDelegate should not be nil")
+        XCTAssertNotNil(GBLPing.svc.delegate, "delegate should not be nil")
+        XCTAssertNotNil(GBLPing.svc.eventDelegate, "dataDelegate should not be nil")
         // test with above class
-        XCTAssertNil(GBLPing.service.currentPingResult, "description should be empty string before a ping is run")
+        XCTAssertNil(GBLPing.svc.currentPingResult, "description should be empty string before a ping is run")
     }
     func resetGBLPingConfig() {
-        GBLPing.service.delegate = nil
-        GBLPing.service.dataDelegate = nil
+        GBLPing.svc.delegate = nil
+        GBLPing.svc.eventDelegate = nil
     }
     /// Asserts that the Test.controller instance
     /// is configured with the initial / default values

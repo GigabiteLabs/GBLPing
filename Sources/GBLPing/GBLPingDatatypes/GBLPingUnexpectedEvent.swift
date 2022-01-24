@@ -10,7 +10,7 @@ import Foundation
 /// An enum representing the known & unexpected events that could occur
 @objc public enum GBLPingUnexpectedEvent: Int, Codable {
     // Network related issues
-    // TODO: Consider expanding this
+    // TODO: Add documentation
     case packetDiscrepancy
     case failedToSendPacket
     // Usage & Configuration related issues

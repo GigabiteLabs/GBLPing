@@ -6,10 +6,9 @@
 //
 
 import Foundation
-/// A typealias for simpler consumption.
-public typealias Ping = GBLPing
+
 /// The main interface into GBLPing. Initializes a shared instance of the GBLPingService.
-public final class GBLPing {
+public struct GBLPing {
     /// A shared instance of GBLPing to be used
     /// or shared among multiple views or objects.
     ///
@@ -19,17 +18,19 @@ public final class GBLPing {
     /// to another object without having to invoke another
     /// ping session.
     ///
-    public static let service = GBLPingService()
-    /// A computed property that returns a new instance of
-    /// `GBLPingService` that can be deallocated after use.
-    public static var serviceInstance: GBLPingService {
-        return GBLPingService()
+    public static let svc = GBLPingService()
+    /// LocalDevice-relate operations, attributes and values.
+    public static var localDevice: GBLPingLocalDevice {
+        return GBLPingLocalDevice()
     }
-    /// A computed property that returns a new instance of
-    /// `GBLPingTools`.
-    public static var tools: GBLPingTools {
-        return GBLPingTools()
+    /// Network-related operations, attributes, and values.
+    public static var network: GBLPingNetwork {
+        return GBLPingNetwork()
     }
-    ///
+    /// Operations and values related to known DNS network hosts.
+    public static var host: GBLPingHost {
+        return GBLPingHost()
+    }
+    /// Restrict init to within framework
     private init() { }
 }

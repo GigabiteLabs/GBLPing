@@ -31,7 +31,7 @@ class GBLPingServiceProtocolTests: XCTestCase {
         assertDefaultSpyConfig(spy: spy)
 
         // start the pinging service
-        GBLPing.service.pingHostname(hostname: "ns.cloudflare.com", nil)
+        GBLPing.svc.pingHostname(hostname: "ns.cloudflare.com", nil)
 
         // await fulfillment
         wait(for: [spy.resultExpectation!], timeout: 10)

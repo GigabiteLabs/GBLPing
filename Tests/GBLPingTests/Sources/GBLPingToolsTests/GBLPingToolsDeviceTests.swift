@@ -23,9 +23,9 @@ class GBLPingToolsDeviceTests: XCTestCase {
     }
 
     func test1GetLocalInterfacePointers() {
-        if let interfaces = Ping.tools.device.localIPInterfaces {
+        if let interfaces = Ping.localDevice.interfaces {
             for interface in interfaces {
-                print("ifa_addr: \(interface.ifa_addr)")
+                print("ifa_addr: \(String(describing: interface.ifa_addr))")
             }
         } else {
             XCTFail("local device interfaces should not be null")
@@ -33,7 +33,7 @@ class GBLPingToolsDeviceTests: XCTestCase {
     }
     
     func test2GetLocalInterfaceNames() {
-        if let names = Ping.tools.device.localIPInterfaceNames {
+        if let names = Ping.localDevice.interfaceNames {
             for name in names {
                 print("interface name: \(name)")
             }
@@ -43,7 +43,7 @@ class GBLPingToolsDeviceTests: XCTestCase {
     }
     
     func test3GetLocalInterfaceInfo() {
-        if let networkInfo = Ping.tools.device.networkInfoFor(localInterface: .wifi) {
+        if let networkInfo = Ping.localDevice.networkInfoFor(localInterface: .wifi) {
             print("local device info:")
             print(networkInfo)
         } else {
