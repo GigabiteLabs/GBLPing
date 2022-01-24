@@ -24,7 +24,11 @@ Available via:
 
 ## Usage
 
-You can run the test project from `Projects/GBLPingExample/GBLPingExample.xcodeproj` and view the source for a functional example. Also, see [Unit Tests](#unit-tests) for information on tests, which also have implementation examples.
+Full documentation available via [Github Pages](https://gigabitelabs.github.io/GBLPing/)
+
+You can also run the test project from `Projects/GBLPingExample/GBLPingExample.xcodeproj` and view the source for a functional example. 
+
+Also, see [Unit Tests](#unit-tests) for information on tests, which also have implementation examples.
 
 Implementation samples:
 
