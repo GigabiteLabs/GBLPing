@@ -19,7 +19,7 @@ public struct GBLPingNetwork {
         // setup completion
         Ping.svc.cache.reachabilityCompletion = completion
         // ping it
-        Ping.svc.pingHostname(
+        Ping.svc.pingHostname (
             hostname: Ping.svc.cache.defaultPingHost,
             maxPings: 1) { result in
                 Ping.svc.cache.reachabilityCompletion?(result)

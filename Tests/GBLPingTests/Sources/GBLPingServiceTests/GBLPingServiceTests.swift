@@ -55,6 +55,7 @@ class GBLPingServiceTests: XCTestCase {
             XCTAssertTrue(reachable)
             reachableExp.fulfill()
         }
+        
         wait(for: [reachableExp], timeout: 15)
     }
 }

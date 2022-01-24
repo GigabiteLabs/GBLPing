@@ -23,31 +23,31 @@ class GBLPingToolsDeviceTests: XCTestCase {
     }
 
     func test1GetLocalInterfacePointers() {
-        if let interfaces = Ping.localDevice.interfaces {
-            for interface in interfaces {
-                print("ifa_addr: \(String(describing: interface.ifa_addr))")
-            }
-        } else {
+        guard
+            let interfaces = Ping.localDevice.interfaces,
+            interfaces.count > 0
+        else {
             XCTFail("local device interfaces should not be null")
+            return
         }
     }
     
     func test2GetLocalInterfaceNames() {
-        if let names = Ping.localDevice.interfaceNames {
-            for name in names {
-                print("interface name: \(name)")
-            }
-        } else {
+        guard
+            let names = Ping.localDevice.interfaceNames,
+            names.count > 0
+        else {
             XCTFail("local device interface names should not be null")
+            return
         }
     }
     
     func test3GetLocalInterfaceInfo() {
-        if let networkInfo = Ping.localDevice.networkInfoFor(localInterface: .wifi) {
-            print("local device info:")
-            print(networkInfo)
-        } else {
+        guard
+            let _ = Ping.localDevice.networkInfoFor(localInterface: .wifi)
+        else {
             XCTFail("local device interface names should not be null")
+            return
         }
     }
 }
