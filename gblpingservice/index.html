@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    
+    <title>GBLPingService| Documentation</title>
+    
+    <link rel="icon"       href=".././favicon.ico" />
+    <link rel="mask-icon"  href=".././favicon.svg" color="#333333" />
+    <link rel='stylesheet' href='.././css/site.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="doc-topic">
+        <nav role="navigation" class="nav documentation-nav">
+  <div class="nav__wrapper">
+    <div class="nav__background"></div>
+    <div class="nav-content">
+      <div class="nav-title">
+        <span class="nav-title-link inactive">Documentation</span>
+      </div>
+      <div class="nav-menu">
+        <div class="nav-menu-tray">
+          <ul class="nav-menu-items hierarchy">
+            
+              <li class="nav-menu-item hierarchy-item">
+                
+                
+                  <a href="../index.html" class="item">GBLPing</a>
+                
+              </li>
+            
+              <li class="nav-menu-item hierarchy-item">
+                
+                  <span class="current item">GBLPingService</span>
+                
+                
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main" role="main" class="main">
+  <div class="topictitle">
+  <span class="eyebrow">Class</span>
+  <h1 class="title">GBLPingService</h1>
+</div>
+
+  <div class="container content-grid">
+  <div class="description">
+    <div class="abstract content">
+      A class representation of GBLPing as an instantiatable service.
+    </div>
+  </div>
+  
+  <!-- The sidebar once we have one: <div class="summary"></div> -->
+  
+  <div class="primary-content">
+    <section id='declaration' class='declaration'>
+  <h2>Declaration</h2>
+  <div class='declaration-group'>
+    <pre class='source indented'><code><span class='token-keyword'>final</span> <span class='token-keyword'>class</span> <span class='token-identifier'>GBLPingService</span></code></pre>
+  </div>
+</section>
+
+  </div>
+</div>
+
+  
+  <section id='topics' class='contenttable alt-light'>
+  <div class='container'>
+    <h2 class='title'>Topics</h2>
+
+    
+      <div class="row contenttable-section">
+        <div class="col section-title large-3 medium-3 small-12">
+          <h3 class="title">Instance Properties</h3>
+        </div>
+  
+        <div class="col section-content large-9 medium-9 small-12">
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/currentpingresult.html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>var</span><span class='decorator empty-token'> </span><span class='identifier'>currentPingResult</span><span class='decorator'>: </span><span class='decorator'>GBLPingResult</span><span class='decorator'>?</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">the currently in-process ping event result.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/delegate.html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>var</span><span class='decorator empty-token'> </span><span class='identifier'>delegate</span><span class='decorator'>: </span><span class='decorator'>GBLPingDelegate</span><span class='decorator'>?</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">An object conforming to <code>GBLPingDelegate</code> protocol delegated responsibility for recieving <code>GBLPingResult</code> objects captured from a running ping event, as well as error events.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/eventdelegate.html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>var</span><span class='decorator empty-token'> </span><span class='identifier'>eventDelegate</span><span class='decorator'>: </span><span class='decorator'>GBLPingEventDelegate</span><span class='decorator'>?</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">A reference to an object confirming to the <code>GBLPingEventDelegate</code> protocol to recieve event updates for all state changes.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/lastpingeventtype.html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>var</span><span class='decorator empty-token'> </span><span class='identifier'>lastPingEventType</span><span class='decorator'>: </span><span class='decorator'>GBLPingEvent</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">A variable of type <code>GBLPingEvent</code> describing the very last type of event that occured. The default value is <code>.pingReadyToStart</code>.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pingresults.html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>var</span><span class='decorator empty-token'> </span><span class='identifier'>pingResults</span><span class='decorator'>: [</span><span class='decorator'>GBLPingResult</span><span class='decorator'>]?</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">An optional array of <code>[GBLPingResult]</code> that has been cached locally, or nil if none has ever been saved.</div>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
+      <div class="row contenttable-section">
+        <div class="col section-title large-3 medium-3 small-12">
+          <h3 class="title">Instance Methods</h3>
+        </div>
+  
+        <div class="col section-content large-9 medium-9 small-12">
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pinghostname(hostname:_:).html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingHostname</span><span class='decorator'>(</span><span class='decorator'>hostname</span><span class='decorator'>: </span><span class='decorator'>String</span><span class='decorator'>, ((</span><span class='decorator'>Bool</span><span class='decorator'>) -&gt; </span><span class='decorator'>Void</span><span class='decorator'>)?)</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Pings a hostname continuously until either stopped or deallocated by the operating system.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pinghostname(hostname:maxpings:_:).html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingHostname</span><span class='decorator'>(</span><span class='decorator'>hostname</span><span class='decorator'>: </span><span class='decorator'>String</span><span class='decorator'>, </span><span class='decorator'>maxPings</span><span class='decorator'>: </span><span class='decorator'>Int</span><span class='decorator'>, ((</span><span class='decorator'>Bool</span><span class='decorator'>) -&gt; </span><span class='decorator'>Void</span><span class='decorator'>)?)</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Pings a hostname stopping after a designated number of pings.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pinghostname(hostname:stopafter:_:).html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingHostname</span><span class='decorator'>(</span><span class='decorator'>hostname</span><span class='decorator'>: </span><span class='decorator'>String</span><span class='decorator'>, </span><span class='decorator'>stopAfter</span><span class='decorator'>: </span><span class='decorator'>Int</span><span class='decorator'>, ((</span><span class='decorator'>Bool</span><span class='decorator'>) -&gt; </span><span class='decorator'>Void</span><span class='decorator'>)?)</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Pings a hostname and stops after the configured amount of time.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pinghostnameforcing(ipversion:hostname:).html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingHostnameForcing</span><span class='decorator'>(</span><span class='decorator'>ipVersion</span><span class='decorator'>: </span><span class='decorator'>GBLPingIPVersion</span><span class='decorator'>, </span><span class='decorator'>hostname</span><span class='decorator'>: </span><span class='decorator'>String</span><span class='decorator'>)</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Pings a hostname continuously until either stopped or deallocated by the operating system. Ping events will be explicitly forced use either an ICMP version v4 or v6 IP addresss.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pinghostnameforcing(ipversion:hostname:maxpings:).html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingHostnameForcing</span><span class='decorator'>(</span><span class='decorator'>ipVersion</span><span class='decorator'>: </span><span class='decorator'>GBLPingIPVersion</span><span class='decorator'>, </span><span class='decorator'>hostname</span><span class='decorator'>: </span><span class='decorator'>String</span><span class='decorator'>, </span><span class='decorator'>maxPings</span><span class='decorator'>: </span><span class='decorator'>Int</span><span class='decorator'>)</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Pings a hostname stopping after a designated number of pings, while explicitly forcing ping events to use either to use either an ICMP version v4 or v6 IP addresss.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pinghostnameforcing(ipversion:hostname:stopafter:).html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingHostnameForcing</span><span class='decorator'>(</span><span class='decorator'>ipVersion</span><span class='decorator'>: </span><span class='decorator'>GBLPingIPVersion</span><span class='decorator'>, </span><span class='decorator'>hostname</span><span class='decorator'>: </span><span class='decorator'>String</span><span class='decorator'>, </span><span class='decorator'>stopAfter</span><span class='decorator'>: </span><span class='decorator'>Int</span><span class='decorator'>)</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Pings a hostname and stops after the configured amount of time.while explicitly forcing ping events to use either to use either an ICMP version v4 or v6 IP addresss.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pingerdidstop().html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingerDidStop</span><span class='decorator'>()</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Handles ping service stoppage configuration.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/pingerwillstart().html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>pingerWillStart</span><span class='decorator'>()</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Handles ping service start event configuration</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/simpleping(_:didfailtosendpacket:sequencenumber:error:completion:).html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>simplePing</span><span class='decorator'>(</span><span class='decorator'>SimplePing</span><span class='decorator'>, </span><span class='decorator'>didFailToSendPacket</span><span class='decorator'>: </span><span class='decorator'>Data</span><span class='decorator'>, </span><span class='decorator'>sequenceNumber</span><span class='decorator'>: </span><span class='decorator'>UInt16</span><span class='decorator'>, </span><span class='decorator'>error</span><span class='decorator'>: </span><span class='decorator'>Error</span><span class='decorator'>, </span><span class='decorator'>completion</span><span class='decorator'>: (</span><span class='decorator'>Bool</span><span class='decorator'>) -&gt; </span><span class='decorator'>Void</span><span class='decorator'>)</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Recieves event updates from <code>SimplePing</code> related to packet sending failures.</div>
+              </div>
+            </div>
+          
+            <div class="link-block topic">
+              
+                <a href="../../../documentation/gblping/gblpingservice/stop().html" class="link has-adjacent-elements">
+                  <code class="decorated-title"><span class='decorator'>func</span><span class='decorator empty-token'> </span><span class='identifier'>stop</span><span class='decorator'>()</span></code>
+                </a>
+              
+              
+              <div class="abstract">
+                <div class="content">Stops the ping service with tightly controlled service suspension, delegate notification, service deallocation and variable resets.</div>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
+      <div class="row contenttable-section">
+        <div class="col section-title large-3 medium-3 small-12">
+          <h3 class="title">Default Implementations</h3>
+        </div>
+  
+        <div class="col section-content large-9 medium-9 small-12">
+          
+            <div class="link-block topic">
+              
+              
+                <a href="../../../documentation/gblping/gblpingservice/simplepingdelegate-implementations.html" class="link has-adjacent-elements">
+                  <span class="topic-icon-wrapper">&nbsp;</span>
+                  SimplePingDelegate Implementations
+                </a>
+              
+              <div class="abstract">
+                <div class="content"></div>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
+  </div>
+</section>
+
+  
+</main>
+
+      </div>
+    </div>
+    <footer class="footer"></footer>
+    <script>hljs.highlightAll();</script>
+  </body>
+</html>
