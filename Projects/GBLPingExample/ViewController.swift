@@ -8,31 +8,39 @@
 
 import UIKit
 import GBLPing
+import XCTest
 
 class ViewController: UIViewController {
     @IBOutlet weak var pingLog: UITextView!
     @IBOutlet weak var pingButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var reachabilityButton: UIButton!
     
     @IBAction func pingButtonAction(_ sender: Any) {
         Ping.svc.pingHostname(hostname: "ns.cloudflare.com", maxPings: 10, nil)
     }
     @IBAction func pauseButtonAction(_ sender: Any) {
         Ping.svc.stop()
-        setupPauseUI()
         setButtonsForPause()
     }
     @IBAction func stopButtonAction(_ sender: Any) {
         Ping.svc.stop()
         setupDefaultUI()
-        setButtonsForReset()
     }
-
+    @IBAction func reachabilityButtonAction(_ sender: Any) {
+        reachabilityTesting = true
+        pingLog.text = "checking reachability of ns.cloudflare.com ..\n"
+        Ping.network.isReachable { result in
+            print("network reachable?: \(result)")
+        }
+    }
+    
+    var reachabilityTesting: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // setup UI
-        setDefaultButtons()
         setupDefaultUI()
         
         // Do any additional setup after loading the view.
@@ -56,12 +64,14 @@ class ViewController: UIViewController {
         pingButton.setTitle("Start Pinging", for: .normal)
         pauseButton.isHidden = true
         stopButton.isHidden = true
+        reachabilityButton.isHidden = false
     }
     
     func setButtonsForPingStart(){
         pingButton.isHidden = true
         pauseButton.isHidden = false
         stopButton.isHidden = true
+        reachabilityButton.isHidden = true
     }
     
     func setButtonsForPause() {
@@ -69,14 +79,24 @@ class ViewController: UIViewController {
         pingButton.setTitle("Resume Pinging", for: .normal)
         pauseButton.isHidden = true
         stopButton.isHidden = false
+        reachabilityButton.isHidden = true
     }
     
-    func setupPauseUI() {
-        
+    func setButtonsForReachability() {
+        pingButton.isHidden = true
+        pauseButton.isHidden = true
+        stopButton.isHidden = false
+        reachabilityButton.isHidden = true
     }
     
+
     func setupDefaultUI() {
         pingLog.text = "activity will appear here. the default ping location is cloudflare's main name server"
+        setDefaultButtons()
+    }
+    
+    func setDefaultVars() {
+        reachabilityTesting = false
     }
     
     func setButtonsForReset() {
@@ -86,16 +106,25 @@ class ViewController: UIViewController {
 
 extension ViewController: GBLPingDelegate, GBLPingEventDelegate {
     func gblPingEvent(_ event: GBLPingEvent) {
+        
         switch event {
         case .pingWillStart:
-            pingLog.text = "pinging ns.cloudflare.com ..\n"
-            setButtonsForPingStart()
+            if reachabilityTesting {
+                setButtonsForReachability()
+            } else {
+                pingLog.text = "pinging ns.cloudflare.com ..\n"
+                setButtonsForPingStart()
+            }
         case .pingDidStop:
             print("ping event: \(event.description)")
-            return
+            if reachabilityTesting {
+                setDefaultButtons()
+                setDefaultVars()
+            }
         default:
             print("ignoring update for event type.")
         }
+        
         print("ping event: \(event.description)")
         updateResultLabel(with: event.description)
     }

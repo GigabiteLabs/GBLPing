@@ -39,10 +39,11 @@ the default ping location is cloudflare's main name server
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="js2-fc-oZH">
-                                <rect key="frame" x="50" y="782" width="314" height="80"/>
+                                <rect key="frame" x="50" y="752" width="314" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqN-zv-b23">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="FYF-z6-3BO"/>
                                         </constraints>
@@ -51,8 +52,22 @@ the default ping location is cloudflare's main name server
                                             <action selector="pingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8tm-Cs-LPm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5C-sF-FgT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVv-sa-273">
                                         <rect key="frame" x="0.0" y="30" width="314" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="2x9-4s-3ci"/>
+                                        </constraints>
+                                        <state key="normal" title="Test Reachability">
+                                            <color key="titleColor" systemColor="systemGreenColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reachabilityButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="po8-8J-JvO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5C-sF-FgT">
+                                        <rect key="frame" x="0.0" y="60" width="314" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Sbv-Vq-xXH"/>
                                         </constraints>
@@ -64,7 +79,8 @@ the default ping location is cloudflare's main name server
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0WQ-TR-vgw">
-                                        <rect key="frame" x="0.0" y="60" width="314" height="20"/>
+                                        <rect key="frame" x="0.0" y="90" width="314" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="FhM-nZ-xbi"/>
                                         </constraints>
@@ -76,12 +92,15 @@ the default ping location is cloudflare's main name server
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="0WQ-TR-vgw" firstAttribute="leading" secondItem="js2-fc-oZH" secondAttribute="leading" id="1Vx-jY-xtd"/>
                                     <constraint firstAttribute="trailing" secondItem="0WQ-TR-vgw" secondAttribute="trailing" id="C4q-eW-ikF"/>
+                                    <constraint firstAttribute="trailing" secondItem="xVv-sa-273" secondAttribute="trailing" id="EIU-YR-u8H"/>
                                     <constraint firstItem="SqN-zv-b23" firstAttribute="leading" secondItem="js2-fc-oZH" secondAttribute="leading" id="IiO-Eu-ert"/>
                                     <constraint firstItem="t5C-sF-FgT" firstAttribute="leading" secondItem="js2-fc-oZH" secondAttribute="leading" id="UJa-7Z-SCT"/>
                                     <constraint firstAttribute="trailing" secondItem="t5C-sF-FgT" secondAttribute="trailing" id="jDY-RD-kjy"/>
+                                    <constraint firstItem="xVv-sa-273" firstAttribute="leading" secondItem="js2-fc-oZH" secondAttribute="leading" id="rWk-gc-rTu"/>
                                     <constraint firstAttribute="trailing" secondItem="SqN-zv-b23" secondAttribute="trailing" id="sdd-p3-Nve"/>
                                 </constraints>
                             </stackView>
@@ -104,6 +123,7 @@ the default ping location is cloudflare's main name server
                         <outlet property="pauseButton" destination="t5C-sF-FgT" id="0ol-c1-Z1O"/>
                         <outlet property="pingButton" destination="SqN-zv-b23" id="rPv-i8-yJ9"/>
                         <outlet property="pingLog" destination="cpy-eK-1YW" id="MiI-WR-8tn"/>
+                        <outlet property="reachabilityButton" destination="xVv-sa-273" id="Y2B-0G-7Ec"/>
                         <outlet property="stopButton" destination="0WQ-TR-vgw" id="kYy-Vk-a2S"/>
                     </connections>
                 </viewController>
@@ -118,6 +138,9 @@ the default ping location is cloudflare's main name server
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
