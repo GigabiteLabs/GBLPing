@@ -1,6 +1,20 @@
 # GBLPing
 
-Splendidly detailed network-layer operations, tests, and utilities for Swift apps.
+Splendidly detailed network and datalink-layer operations, tests, and utilities for Swift apps.
+
+####What is GBLPing?
+
+A Powerful, lightweight, and super fast framework that makes the often-difficult task of getting detailed network and datalink-layer information from the devices running your application.
+
+Benefits:
+
+- Fine-grained control over host reachability operations
+- Gets detailed network interface information about the local device
+- Enables retrieval of remote MAC addresses within local networks
+- Enabled capture and storage of actual packets as `Codable` Swift objects (see docs for `GBLPingResult`)
+- Fully documented in DocC
+
+[Note: some of this documentation is about features that are not yet exposed]
 
 ## Get it
 
