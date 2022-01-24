@@ -336,7 +336,9 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/SupportFiles/GBLPingExample.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6F9773F85D;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SupportFIles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -344,7 +346,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.GBLPingExample;
 				PRODUCT_NAME = GBLPingExampleExample;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SupportFiles/GBLPingExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
@@ -361,7 +363,8 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/SupportFiles/GBLPingExample.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6F9773F85D;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/SupportFIles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -369,7 +372,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.giganom.GBLPingExample;
 				PRODUCT_NAME = GBLPingExampleExample;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SupportFiles/GBLPingExample-Bridging-Header.h";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 4.2;

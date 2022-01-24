@@ -6,32 +6,38 @@
 //  Copyright © 2019 Dan. All rights reserved.
 //
 
-#if canImport(UIKit)
 import UIKit
-#endif
-import GBLPing
-
-#if canImport(UIKit)
-import UIKit
-#endif
 import GBLPing
 
 class ViewController: UIViewController {
     @IBOutlet weak var pingLog: UITextView!
     @IBOutlet weak var pingButton: UIButton!
-    @IBAction func pingButtonAction(_ sender: Any) {
-        Ping.service.pingHostname(hostname: "ns.cloudflare.com", maxPings: 10, nil)
-    }
+    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    
+    @IBAction func pingButtonAction(_ sender: Any) {
+        Ping.svc.pingHostname(hostname: "ns.cloudflare.com", maxPings: 10, nil)
+    }
+    @IBAction func pauseButtonAction(_ sender: Any) {
+        Ping.svc.stop()
+        setupPauseUI()
+        setButtonsForPause()
+    }
     @IBAction func stopButtonAction(_ sender: Any) {
-        Ping.service.stop()
+        Ping.svc.stop()
+        setupDefaultUI()
+        setButtonsForReset()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // setup UI
+        setDefaultButtons()
+        setupDefaultUI()
+        
         // Do any additional setup after loading the view.
-        Ping.service.delegate = self
-        Ping.service.dataDelegate = self
+        Ping.svc.delegate = self
+        Ping.svc.eventDelegate = self
     }
 
     func updateResultLabel(with result: String) {
@@ -44,22 +50,47 @@ class ViewController: UIViewController {
         }
         pingLog.scrollRangeToVisible( _NSRange(location: pingLog.text.count - 1, length: 1) )
     }
-    // Reverses visibility on both buttons
-    func toggleButtonVisibility() {
-        pingButton.isHidden.toggle()
-        stopButton.isHidden.toggle()
+    
+    func setDefaultButtons() {
+        pingButton.isHidden = false
+        pingButton.setTitle("Start Pinging", for: .normal)
+        pauseButton.isHidden = true
+        stopButton.isHidden = true
+    }
+    
+    func setButtonsForPingStart(){
+        pingButton.isHidden = true
+        pauseButton.isHidden = false
+        stopButton.isHidden = true
+    }
+    
+    func setButtonsForPause() {
+        pingButton.isHidden = false
+        pingButton.setTitle("Resume Pinging", for: .normal)
+        pauseButton.isHidden = true
+        stopButton.isHidden = false
+    }
+    
+    func setupPauseUI() {
+        
+    }
+    
+    func setupDefaultUI() {
+        pingLog.text = "activity will appear here. the default ping location is cloudflare's main name server"
+    }
+    
+    func setButtonsForReset() {
+        setDefaultButtons()
     }
 }
 
-extension ViewController: GBLPingDelegate, GBLPingDataDelegate {
+extension ViewController: GBLPingDelegate, GBLPingEventDelegate {
     func gblPingEvent(_ event: GBLPingEvent) {
         switch event {
         case .pingWillStart:
             pingLog.text = "pinging ns.cloudflare.com ..\n"
-            toggleButtonVisibility()
+            setButtonsForPingStart()
         case .pingDidStop:
-            pingLog.text = "ping stopped.\nactivity will appear here."
-            toggleButtonVisibility()
             print("ping event: \(event.description)")
             return
         default:
@@ -90,6 +121,7 @@ extension ViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
 
     }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
 
     }
